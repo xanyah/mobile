@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native'
+import PropTypes from 'prop-types'
 
 import { colors } from '../../constants/styles'
 import styles from './styles'
@@ -25,3 +26,15 @@ const Button = ({
 )
 
 export default Button
+
+Button.propTypes = {
+  children: PropTypes.string,
+  loading: PropTypes.bool,
+  onPress: PropTypes.func,
+}
+
+Button.defaultProps = {
+  children: '',
+  loading: false,
+  onPress: () => null,
+}
