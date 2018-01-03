@@ -7,11 +7,18 @@ import {
 import { Provider } from 'react-redux'
 import { StackNavigator } from 'react-navigation'
 import {
+  InitialLoading,
   Login,
 } from './scenes'
 import store from './store'
 
 const RootNavigator = StackNavigator({
+  InitialLoading: {
+    navigationOptions: {
+      header: null,
+    },
+    screen: InitialLoading,
+  },
   Login: {
     navigationOptions: {
       header: null,
@@ -21,6 +28,8 @@ const RootNavigator = StackNavigator({
   Home: {
     screen: () => <Text>Home</Text>,
   },
+}, {
+  initialRouteName: 'InitialLoading',
 })
 
 class App extends React.Component {

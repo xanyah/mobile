@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { updateAuthField, signIn } from '../../actions'
-import { resetHome } from '../../utils/navigation-helper'
+import { resetTo } from '../../utils/navigation-helper'
 import Login from '../../components/login-page'
 
 const mapStateToProps = ({ auth: { email, errors, loading, password, passwordInput }}) => ({
@@ -23,7 +23,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   signIn: () => dispatchProps.dispatch(signIn(
     stateProps.email,
     stateProps.password,
-    () => ownProps.navigation.dispatch(resetHome)
+    () => ownProps.navigation.dispatch(resetTo('Home'))
   )),
 })
 
