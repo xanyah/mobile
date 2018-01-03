@@ -1,0 +1,28 @@
+dependencies: \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTBridge.m \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTJSEnvironment.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTModuleData.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/React/Base/RCTReloadCommand.h

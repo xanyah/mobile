@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTTextViewManager.m \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTTextViewManager.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFont.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView+Layout.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTConvert+Text.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTShadowTextView.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTTextView.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTView.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTTextInput.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTBackedTextInputViewProtocol.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTFontAttributes.h \
+  /Users/sofianegargouri/Development/Xanyah/xanyah-mobile/node_modules/react-native/Libraries/Text/RCTFontAttributesDelegate.h
