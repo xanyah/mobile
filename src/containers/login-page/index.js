@@ -23,7 +23,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   signIn: () => dispatchProps.dispatch(signIn(
     stateProps.email,
     stateProps.password,
-    () => ownProps.navigation.dispatch(resetTo('Home'))
+    () => ownProps.navigation.dispatch(resetTo('Dashboard'))
   )),
 })
 

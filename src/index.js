@@ -1,16 +1,23 @@
 import React from 'react'
 import {
+  TouchableOpacity,
   Platform,
   StatusBar,
-  Text,
 } from 'react-native'
 import { Provider } from 'react-redux'
 import { StackNavigator } from 'react-navigation'
 import {
+  signOut,
+} from './actions'
+import {
+  Camera,
+  Dashboard,
   InitialLoading,
+  Inventory,
   Login,
 } from './scenes'
 import store from './store'
+import { colors } from './constants/styles'
 
 const RootNavigator = StackNavigator({
   InitialLoading: {
@@ -19,16 +26,38 @@ const RootNavigator = StackNavigator({
     },
     screen: InitialLoading,
   },
+  Camera: {
+    navigationOptions: {
+      header: null,
+    },
+    screen: Camera,
+  },
   Login: {
     navigationOptions: {
       header: null,
     },
     screen: Login,
   },
-  Home: {
-    screen: () => <Text>Home</Text>,
+  Dashboard: {
+    navigationOptions: {
+      headerRight: <TouchableOpacity
+        onPress={signOut}
+        style={{
+          height: 20,
+          width: 20,
+          backgroundColor: 'red',
+        }}
+      />,
+    },
+    screen: Dashboard,
+  },
+  Inventory: {
+    screen: Inventory,
   },
 }, {
+  cardStyle: {
+    backgroundColor: colors.white,
+  },
   initialRouteName: 'InitialLoading',
 })
 

@@ -6,3 +6,7 @@ export const resetTo = scene => NavigationActions.reset({
     NavigationActions.navigate({ routeName: scene}),
   ],
 })
+
+export const goTo = scene => NavigationActions.navigate({
+  routeName: scene,
+})

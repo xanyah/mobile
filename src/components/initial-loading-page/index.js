@@ -14,10 +14,13 @@ import styles from './styles'
 
 export default class Loading extends React.Component {
   componentDidMount() {
-    const { navigation: { dispatch }} = this.props
+    const { getInventories, getStores, navigation: { dispatch }} = this.props
     StatusBar.setBarStyle('light-content')
     validateToken()
-      .then(() => dispatch(resetTo('Home')))
+      .then(() => {
+        getStores()
+        dispatch(resetTo('Dashboard'))
+      })
       .catch(() => dispatch(resetTo('Login')))
   }
 

@@ -1,3 +1,4 @@
+import { AsyncStorage } from 'react-native'
 import {
   AUTH_UPDATE_FIELD,
 } from '../constants/actions'
@@ -27,3 +28,15 @@ export const signIn = (email, password, successCallback = null) =>
         dispatch(updateAuthField('errors', r.response.data.errors))
       })
   }
+export const signOut = () => {
+  const keys = [
+    'access-token',
+    'client',
+    'expiry',
+    'token-type',
+    'uid',
+  ]
+  for (let key of keys) {
+    AsyncStorage.removeItem(`@Xanyah:${key}`)
+  }
+}
