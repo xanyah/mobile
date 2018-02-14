@@ -10,7 +10,7 @@ export default {
     height: sizes.primaryHeight,
     justifyContent: 'center',
     marginVertical: 10,
-    padding: 20,
+    paddingHorizontal: 20,
   },
   input: {
     flex: 1,

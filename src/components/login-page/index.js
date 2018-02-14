@@ -1,19 +1,18 @@
 import React from 'react'
 import {
-  Image,
+  ImageBackground,
   StatusBar,
   Text,
-  View,
 } from 'react-native'
 import PropTypes from 'prop-types'
 
+import styles from './styles'
+
 import Button from '../button'
 import LoginInput from '../login-input'
-
 import { wallpaper } from '../../images'
 import i18n from '../../i18n'
 
-import styles from './styles'
 
 export default class Login extends React.Component {
   componentDidMount() {
@@ -25,12 +24,13 @@ export default class Login extends React.Component {
   }
 
   render() {
-    const { email, errors, loading, password, passwordInput, signIn, updateField } = this.props
+    const {
+      email, errors, loading, password, passwordInput, signIn, updateField,
+    } = this.props
     return (
-      <View style={styles.mainContainer}>
-        <Image source={wallpaper} style={styles.wallpaper} />
-        {errors.map((error, idx) =>
-          <Text key={idx} style={styles.error}>{error}</Text>)}
+      <ImageBackground source={wallpaper} style={styles.mainContainer}>
+        {errors.map(error =>
+          <Text key={error} style={styles.error}>{error}</Text>)}
         <LoginInput
           autoFocus
           onChangeText={value => updateField('email', value)}
@@ -55,7 +55,7 @@ export default class Login extends React.Component {
         >
           {i18n.t('login')}
         </Button>
-      </View>
+      </ImageBackground>
     )
   }
 }

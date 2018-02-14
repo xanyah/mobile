@@ -1,9 +1,14 @@
 import { connect } from 'react-redux'
-import { updateAuthField, signIn } from '../../actions'
+
+import { signIn, updateAuthField } from '../../actions'
 import { resetTo } from '../../utils/navigation-helper'
 import Login from '../../components/login-page'
 
-const mapStateToProps = ({ auth: { email, errors, loading, password, passwordInput }}) => ({
+const mapStateToProps = ({
+  auth: {
+    email, errors, loading, password, passwordInput,
+  },
+}) => ({
   email,
   errors,
   loading,
@@ -23,7 +28,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   signIn: () => dispatchProps.dispatch(signIn(
     stateProps.email,
     stateProps.password,
-    () => ownProps.navigation.dispatch(resetTo('Dashboard'))
+    () => ownProps.navigation.dispatch(resetTo('InitialLoading'))
   )),
 })
 

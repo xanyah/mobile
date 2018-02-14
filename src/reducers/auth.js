@@ -4,17 +4,17 @@ import {
 
 const initialState = {
   email: '',
+  errors: [],
   loading: false,
   password: '',
   passwordConfirmation: '',
   passwordInput: null,
   passwordToken: '',
-  errors: [],
   signedIn: false,
 }
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
   case AUTH_UPDATE_FIELD:
     return {
       ...state,

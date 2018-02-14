@@ -22,5 +22,7 @@ export default {
     color: colors.white,
     fontSize: 18,
     fontWeight: '500',
+    textAlign: 'center',
+    width: '100%',
   },
 }

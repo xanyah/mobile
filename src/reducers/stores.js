@@ -3,12 +3,13 @@ import {
 } from '../constants/actions'
 
 const initialState = {
-  stores: [],
+  currentStore: {},
   loading: false,
+  stores: [],
 }
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
   case STORES_UPDATE_FIELD:
     return {
       ...state,

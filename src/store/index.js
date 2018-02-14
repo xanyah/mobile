@@ -1,19 +1,18 @@
-import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import { reducer } from '../reducers'
+import { applyMiddleware, compose, createStore } from 'redux'
+
+import defaultReducer, { reducer } from '../reducers'
 
 const configureStore = () => {
   const store = createStore(
     reducer,
     {},
-    compose(
-      applyMiddleware(thunk)
-    )
+    compose(applyMiddleware(thunk))
   )
 
   if (module.hot) {
     module.hot.accept(() => {
-      const nextReducer = require('../reducers/index').default
+      const nextReducer = defaultReducer
 
       store.replaceReducer(nextReducer)
     })

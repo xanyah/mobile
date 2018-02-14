@@ -4,11 +4,12 @@ import {
   View,
 } from 'react-native'
 import PropTypes from 'prop-types'
+
 import styles from './styles'
 
 class LoginInput extends React.Component {
   componentDidMount() {
-    this.props.reference(this.refs.input)
+    this.props.reference(this.input)
   }
 
   render() {
@@ -18,7 +19,8 @@ class LoginInput extends React.Component {
           autoCapitalize="none"
           autoCorrect={false}
           {...this.props}
-          ref="input"
+          underlineColorAndroid="transparent"
+          ref={(ref) => { this.input = ref }}
           style={styles.input}
         />
       </View>

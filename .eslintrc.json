@@ -5,7 +5,8 @@
         "es6": true
     },
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "airbnb"
     ],
     "globals": {
         "__DEV__": true,
@@ -27,16 +28,34 @@
         "standard"
     ],
     "rules": {
+        "array-bracket-spacing": ["error", "always"],
         "comma-dangle": ["error", "always-multiline"],
+        "eol-last": ["error", "always"],
+        "import/order": ["error", {
+            "groups": [
+                "external",
+                "index",
+                "sibling",
+                "parent",
+                "internal",
+                "builtin"
+            ],
+            "newlines-between": "always"
+        }],
         "indent": ["error", 2],
         "linebreak-style": ["error", "unix"],
+        "no-multiple-empty-lines": "error",
         "no-trailing-spaces": [2],
+        "object-curly-spacing": ["error", "always"],
         "quotes": ["error", "single"],
         "semi": ["error", "never"],
+        "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": false}],
+        "sort-vars": "error",
         "react/jsx-filename-extension": 0,
         "react/jsx-uses-react": 2,
         "react/jsx-uses-vars": 2,
         "react/prop-types": 2,
+        "react/forbid-prop-types": 0,
         "react/require-default-props": 2
     }
 }

@@ -6,8 +6,9 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 
-import { colors } from '../../constants/styles'
 import styles from './styles'
+
+import { colors } from '../../constants/styles'
 
 const Button = ({
   children,

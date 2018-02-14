@@ -1,8 +1,10 @@
 import { connect } from 'react-redux'
+
 import Inventory from '../../components/inventory-page'
 import { getInventoryVariants } from '../../actions'
+import { goTo } from '../../utils/navigation-helper'
 
-const mapStateToProps = ({inventories: { currentInventory, variants }}) => ({
+const mapStateToProps = ({ inventories: { currentInventory, variants } }) => ({
   currentInventory,
   variants,
 })
@@ -16,6 +18,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...ownProps,
   ...stateProps,
   getVariants: () => dispatchProps.dispatch(getInventoryVariants(stateProps.currentInventory)),
+  goToCamera: () => ownProps.navigation.dispatch(goTo('Camera')),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Inventory)

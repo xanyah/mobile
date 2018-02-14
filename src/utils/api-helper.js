@@ -9,4 +9,7 @@ export const getInventories = params => xanyahApi.get('inventories', { params })
 
 export const getInventoryVariants = params => xanyahApi.get('inventory_variants', { params })
 
+
 export const getStores = () => xanyahApi.get('stores')
+
+export const getVariantByBarcode = barcode => xanyahApi.get(`variants/${barcode}/by_barcode`)
