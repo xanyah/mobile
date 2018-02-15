@@ -16,6 +16,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => ({
   createInventory: () => dispatch(createInventory()),
+  dispatch,
   getInventories: () => dispatch(getInventories()),
   updateInventoriesField: (field, value) =>
     dispatch(updateInventoriesField(field, value)),
@@ -27,11 +28,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...stateProps,
   createInventory: () => {
     dispatchProps.createInventory()
-    ownProps.navigation.dispatch(goTo('Inventory'))
+    dispatchProps.dispatch(goTo('Inventory'))
   },
   openInventory: (inventory) => {
     dispatchProps.updateInventoriesField('currentInventory', inventory)
-    ownProps.navigation.dispatch(goTo('Inventory'))
+    dispatchProps.dispatch(goTo('Inventory'))
   },
 })
 

@@ -5,6 +5,7 @@ import {
 } from '../constants/actions'
 import {
   signIn as apiSignIn,
+  signOut as apiSignOut,
 } from '../utils/api-helper'
 
 export const updateAuthField = (field, value) => ({
@@ -29,14 +30,21 @@ export const signIn = (email, password, successCallback = null) =>
         dispatch(updateAuthField('errors', r.response.data.errors))
       })
   }
-export const signOut = () => {
-  const keys = [
-    'access-token',
-    'client',
-    'expiry',
-    'token-type',
-    'uid',
-  ]
-  keys.forEach(key =>
-    AsyncStorage.removeItem(`@Xanyah:${key}`))
-}
+export const signOut = successCallback =>
+  dispatch =>
+    apiSignOut()
+      .then(() => {
+        const keys = [
+          'access-token',
+          'client',
+          'expiry',
+          'token-type',
+          'uid',
+        ]
+        keys.forEach(key =>
+          AsyncStorage.removeItem(`@Xanyah:${key}`))
+        dispatch(updateAuthField('signedIn', false))
+        if (successCallback) {
+          successCallback()
+        }
+      })

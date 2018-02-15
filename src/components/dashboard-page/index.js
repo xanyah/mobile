@@ -14,6 +14,8 @@ const Dashboard = TabNavigator({
   },
 }, {
   animationEnabled: true,
+  initialRouteName: 'Shippings',
+  order: [ 'Shippings', 'Inventories' ],
   swipeEnabled: true,
   tabBarOptions: {
     activeTintColor: colors.primaryBlue,

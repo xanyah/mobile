@@ -1,4 +1,5 @@
-/* eslint-disable */
+/* eslint-disable no-restricted-syntax, no-await-in-loop, no-param-reassign */
+
 import axios from 'axios'
 import {
   AsyncStorage,
@@ -36,3 +37,5 @@ xanyahApi.interceptors.response.use((response) => {
   response.data = camelizeKeys(response.data)
   return response
 }, error => Promise.reject(error))
+
+export default xanyahApi

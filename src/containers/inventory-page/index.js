@@ -18,7 +18,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...ownProps,
   ...stateProps,
   getVariants: () => dispatchProps.dispatch(getInventoryVariants(stateProps.currentInventory)),
-  goToCamera: () => ownProps.navigation.dispatch(goTo('Camera')),
+  goToCamera: () => dispatchProps.dispatch(goTo('Camera')),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Inventory)

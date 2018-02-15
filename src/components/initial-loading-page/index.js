@@ -23,7 +23,8 @@ export default class Loading extends React.Component {
         dispatch(resetTo('Dashboard'))
         setLightStatusbar()
       })
-      .catch(() => dispatch(resetTo('Login')))
+      .catch(() =>
+        dispatch(resetTo('Login')))
   }
 
   render() {

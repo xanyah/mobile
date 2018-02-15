@@ -1,13 +1,17 @@
-import thunk from 'redux-thunk'
 import { applyMiddleware, compose, createStore } from 'redux'
+import thunk from 'redux-thunk'
 
+import { navigationMiddleware } from '../middlewares'
 import defaultReducer, { reducer } from '../reducers'
 
 const configureStore = () => {
   const store = createStore(
     reducer,
     {},
-    compose(applyMiddleware(thunk))
+    compose(
+      applyMiddleware(thunk),
+      applyMiddleware(navigationMiddleware)
+    )
   )
 
   if (module.hot) {
