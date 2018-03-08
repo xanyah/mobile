@@ -35,7 +35,7 @@ export default class CameraView extends React.Component {
       this.setState({
         editing: true, imagePath: image.path, loading: true,
       })
-      getVariantByBarcode(e.data).then(({ data }) => console.log(data) ||
+      getVariantByBarcode(e.data).then(({ data }) =>
         this.setState({ loading: false, variant: data }))
     })
   }

@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 
 import styles from './styles'
 
