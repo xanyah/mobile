@@ -10,6 +10,12 @@ export const getInventories = params => xanyahApi.get('inventories', { params })
 
 export const getInventoryVariants = params => xanyahApi.get('inventory_variants', { params })
 
+export const getProviders = () => xanyahApi.get('providers')
+
+export const createShipping = shipping => xanyahApi.post('shippings', { shipping })
+export const getShippings = params => xanyahApi.get('shippings', { params })
+
+export const getShippingVariants = params => xanyahApi.get('shipping_variants', { params })
 
 export const getStores = () => xanyahApi.get('stores')
 

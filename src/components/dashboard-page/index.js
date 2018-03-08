@@ -1,16 +1,15 @@
-import React from 'react'
-import { Text } from 'react-native'
 import { TabNavigator } from 'react-navigation'
 
 import { colors } from '../../constants/styles'
 import InventoriesDashboard from '../../containers/inventories-dashboard'
+import ShippingsDashboard from '../../containers/shippings-dashboard'
 
 const Dashboard = TabNavigator({
   Inventories: {
     screen: InventoriesDashboard,
   },
   Shippings: {
-    screen: () => <Text>Home</Text>,
+    screen: ShippingsDashboard,
   },
 }, {
   animationEnabled: true,

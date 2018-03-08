@@ -33,6 +33,7 @@ export default class Login extends React.Component {
           <Text key={error} style={styles.error}>{error}</Text>)}
         <LoginInput
           autoFocus
+          keyboardType="email-address"
           onChangeText={value => updateField('email', value)}
           onSubmitEditing={() => passwordInput.focus()}
           placeholder={i18n.t('email')}

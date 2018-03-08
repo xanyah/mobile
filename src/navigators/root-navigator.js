@@ -15,6 +15,8 @@ import {
   InitialLoading,
   Inventory,
   Login,
+  Shipping,
+  ShippingForm,
 } from '../scenes'
 import HeaderLogoutButton from '../containers/header-logout-button'
 
@@ -45,6 +47,12 @@ export const RootStackNavigator = StackNavigator({
       header: null,
     },
     screen: Login,
+  },
+  Shipping: {
+    screen: Shipping,
+  },
+  ShippingForm: {
+    screen: ShippingForm,
   },
 }, {
   cardStyle: {

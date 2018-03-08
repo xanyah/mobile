@@ -35,7 +35,7 @@ export default class CameraView extends React.Component {
       this.setState({
         editing: true, imagePath: image.path, loading: true,
       })
-      getVariantByBarcode(e.data).then(({ data }) =>
+      getVariantByBarcode(e.data).then(({ data }) => console.log(data) ||
         this.setState({ loading: false, variant: data }))
     })
   }
@@ -50,7 +50,13 @@ export default class CameraView extends React.Component {
           >
             {this.state.loading
               ? <ActivityIndicator color="black" />
-              : <Text style={{ color: 'blue', fontSize: 14 }}>{this.state.variant.product.name}</Text>}
+              : (
+                <View>
+                  <Text style={{ color: 'blue', fontSize: 14 }}>{this.state.variant.product.name}</Text>
+                  <Text style={{ color: 'blue', fontSize: 14 }}>{this.state.variant.barcode}</Text>
+                  <Text style={{ color: 'blue', fontSize: 14 }}>{this.state.variant.product.manufacturer.name}</Text>
+                  <Text style={{ color: 'blue', fontSize: 14 }}>{this.state.variant.product.category.name}</Text>
+                </View>)}
           </View>
         </ImageBackground>
       )

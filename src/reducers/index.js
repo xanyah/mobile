@@ -2,6 +2,8 @@ import { combineReducers } from 'redux'
 
 import auth from './auth'
 import inventories from './inventories'
+import providers from './providers'
+import shippings from './shippings'
 import stores from './stores'
 
 import { RootStackNavigator } from '../navigators'
@@ -18,6 +20,8 @@ export const reducer = combineReducers({
   auth,
   inventories,
   nav,
+  providers,
+  shippings,
   stores,
 })
 

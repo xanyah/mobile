@@ -15,25 +15,16 @@ const mapStateToProps = ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  createInventory: () => dispatch(createInventory()),
+  createInventory: () => {
+    dispatch(createInventory())
+    dispatch(goTo('Inventory'))
+  },
   dispatch,
   getInventories: () => dispatch(getInventories()),
-  updateInventoriesField: (field, value) =>
-    dispatch(updateInventoriesField(field, value)),
-})
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => ({
-  ...dispatchProps,
-  ...ownProps,
-  ...stateProps,
-  createInventory: () => {
-    dispatchProps.createInventory()
-    dispatchProps.dispatch(goTo('Inventory'))
-  },
-  openInventory: (inventory) => {
-    dispatchProps.updateInventoriesField('currentInventory', inventory)
-    dispatchProps.dispatch(goTo('Inventory'))
+  openInventory: (value) => {
+    dispatch(updateInventoriesField('currentInventory', value))
+    dispatch(goTo('Inventory'))
   },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(InventoriesDashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(InventoriesDashboard)

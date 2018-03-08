@@ -1,11 +1,13 @@
 import React from 'react'
 import {
+  ActivityIndicator,
   ImageBackground,
 } from 'react-native'
 import PropTypes from 'prop-types'
 
 import styles from './styles'
 
+import { colors } from '../../constants/styles'
 import { wallpaper } from '../../images'
 import { validateToken } from '../../utils/api-helper'
 import { resetTo } from '../../utils/navigation-helper'
@@ -14,7 +16,7 @@ import { setDarkStatusbar, setLightStatusbar, setTranslucent } from '../../utils
 
 export default class Loading extends React.Component {
   componentDidMount() {
-    const { getStores, navigation: { dispatch } } = this.props
+    const { dispatch, getStores } = this.props
     setTranslucent()
     setDarkStatusbar()
     validateToken()
@@ -29,12 +31,17 @@ export default class Loading extends React.Component {
 
   render() {
     return (
-      <ImageBackground source={wallpaper} style={styles.mainContainer} />
+      <ImageBackground source={wallpaper} style={styles.mainContainer}>
+        <ActivityIndicator
+          color={colors.white}
+          size="large"
+        />
+      </ImageBackground>
     )
   }
 }
 
 Loading.propTypes = {
+  dispatch: PropTypes.func.isRequired,
   getStores: PropTypes.func.isRequired,
-  navigation: PropTypes.object.isRequired,
 }

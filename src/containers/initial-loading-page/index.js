@@ -4,6 +4,7 @@ import Loading from '../../components/initial-loading-page'
 import { getInventories, getStores } from '../../actions'
 
 const mapDispatchToProps = dispatch => ({
+  dispatch,
   getInventories: () => dispatch(getInventories()),
   getStores: () => dispatch(getStores()),
 })
