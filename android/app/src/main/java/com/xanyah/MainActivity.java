@@ -1,4 +1,4 @@
-package com.xanyah;
+package io.xanyah.android;
 
 import com.facebook.react.ReactActivity;
 
