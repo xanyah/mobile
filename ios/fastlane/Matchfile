@@ -1,0 +1,7 @@
+git_url ENV['GIT_URL']
+
+type 'appstore'
+
+app_identifier ["io.xanyah.ios"]
+username ENV['APPLE_ID']
+team_id ENV['TEAM_ID']
