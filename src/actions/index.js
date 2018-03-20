@@ -1,5 +1,7 @@
 export * from './auth'
+export * from './camera'
 export * from './inventories'
+export * from './notifications'
 export * from './providers'
 export * from './shippings'
 export * from './stores'

@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 
 import auth from './auth'
+import camera from './camera'
 import inventories from './inventories'
+import notification from './notification'
 import providers from './providers'
 import shippings from './shippings'
 import stores from './stores'
@@ -18,8 +20,10 @@ const nav = (state = initialState, action) => {
 
 export const reducer = combineReducers({
   auth,
+  camera,
   inventories,
   nav,
+  notification,
   providers,
   shippings,
   stores,

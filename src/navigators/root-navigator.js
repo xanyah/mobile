@@ -3,6 +3,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
+  View,
+} from 'react-native'
+import {
   StackNavigator,
   addNavigationHelpers,
 } from 'react-navigation'
@@ -19,6 +22,7 @@ import {
   ShippingForm,
 } from '../scenes'
 import HeaderLogoutButton from '../containers/header-logout-button'
+import Notification from '../containers/notification'
 
 export const RootStackNavigator = StackNavigator({
   Camera: {
@@ -63,15 +67,17 @@ export const RootStackNavigator = StackNavigator({
 
 const addListener = createReduxBoundAddListener('root')
 
-export const RootNavigator = ({ nav, dispatch }) => (
+export const RootNavigator = ({ nav, dispatch }) => ([
   <RootStackNavigator
+    key="navigator"
     navigation={addNavigationHelpers({
       addListener,
       dispatch,
       state: nav,
     })}
-  />
-)
+  />,
+  <Notification key="notification" />,
+])
 
 const mapStateToProps = ({ nav }) => ({
   nav,
