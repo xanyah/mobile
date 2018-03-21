@@ -6,6 +6,8 @@ import {
 import TimerMixin from 'react-timer-mixin'
 import PropTypes from 'prop-types'
 
+import { getNotificationColor } from '../../utils/notifications-helper'
+
 export default class Notification extends React.Component {
   constructor(props) {
     super(props)
@@ -19,14 +21,14 @@ export default class Notification extends React.Component {
   }
 
   render() {
-    console.log(this.props)
-    const { destroyNotification, notification: { text } } = this.props
+    const { destroyNotification, notification: { text, type } } = this.props
+    const colors = getNotificationColor(type)
     return (text
       ? (
         <TouchableOpacity
           onPress={destroyNotification}
           style={{
-            backgroundColor: 'yellow',
+            backgroundColor: colors.background,
             bottom: 0,
             height: 60,
             left: 0,
@@ -34,7 +36,7 @@ export default class Notification extends React.Component {
             right: 0,
           }}
         >
-          <Text style={{ fontSize: 16 }}>{text}</Text>
+          <Text style={{ color: colors.text, fontSize: 16 }}>{text}</Text>
         </TouchableOpacity>
       )
       : null)

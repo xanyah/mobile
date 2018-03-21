@@ -3,10 +3,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-  View,
+  BackHandler,
 } from 'react-native'
 import {
   StackNavigator,
+  NavigationActions,
   addNavigationHelpers,
 } from 'react-navigation'
 import { createReduxBoundAddListener } from 'react-navigation-redux-helpers'
@@ -67,17 +68,38 @@ export const RootStackNavigator = StackNavigator({
 
 const addListener = createReduxBoundAddListener('root')
 
-export const RootNavigator = ({ nav, dispatch }) => ([
-  <RootStackNavigator
-    key="navigator"
-    navigation={addNavigationHelpers({
-      addListener,
-      dispatch,
-      state: nav,
-    })}
-  />,
-  <Notification key="notification" />,
-])
+export class RootNavigator extends React.Component {
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', () => this.onBackPress())
+  }
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', () => this.onBackPress())
+  }
+  onBackPress = () => {
+    const { dispatch, nav } = this.props
+    if (nav.index === 0) {
+      return false
+    }
+    dispatch(NavigationActions.back())
+    return true
+  }
+
+  render() {
+    const { nav, dispatch } = this.props
+
+    return [
+      <RootStackNavigator
+        key="navigator"
+        navigation={addNavigationHelpers({
+          addListener,
+          dispatch,
+          state: nav,
+        })}
+      />,
+      <Notification key="notification" />,
+    ]
+  }
+}
 
 const mapStateToProps = ({ nav }) => ({
   nav,

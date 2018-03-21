@@ -3,15 +3,18 @@ import React from 'react'
 import {
   ActivityIndicator,
   ImageBackground,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native'
+import I18n from 'react-native-i18n'
 import RNFS from 'react-native-fs'
 import Camera from 'react-native-camera'
 import PropTypes from 'prop-types'
 
+import Button from '../button'
 import {
   colors,
 } from '../../constants/styles'
@@ -94,99 +97,130 @@ export default class CameraView extends React.Component {
   }
 
   render() {
-    return this.state.editing
-      ? (
-        <ImageBackground source={{ isStatic: true, uri: this.state.imagePath }} style={{ height: '100%', width: '100%' }}>
-          <View style={{
-            alignItems: 'center', backgroundColor: 'white', borderRadius: 4, flex: 1, justifyContent: 'center', marginHorizontal: 20, marginVertical: 100,
-          }}
-          >
-            {this.state.loading
-              ? <ActivityIndicator color="black" />
-              : (
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: 'flex-start',
-                    marginBottom: 20,
-                    padding: 20,
-                    width: '100%',
-                  }}
-                >
-                  <View style={{ alignItems: 'flex-start', flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <View style={{ flexDirection: 'column' }}>
-                      <Text style={{ color: colors.secondaryBlue, fontSize: 24 }}>
-                        {this.state.variant.product.name}
-                      </Text>
+    return [
+      <TouchableOpacity
+        key="back-button"
+        onPress={this.props.goBack}
+        style={{
+          height: 50,
+          left: 0,
+          position: 'absolute',
+          top: 0,
+          width: 40,
+          zIndex: 5,
+        }}
+      >
+        <Text style={{ fontSize: 24 }}>{'<'}</Text>
+      </TouchableOpacity>,
+      this.state.editing
+        ? (
+          <ImageBackground key="editor" source={{ isStatic: true, uri: this.state.imagePath }} style={{ height: '100%', width: '100%' }}>
+            <View style={{
+              alignItems: 'center', backgroundColor: 'white', borderRadius: 4, flex: 1, justifyContent: 'center', marginHorizontal: 20, marginVertical: 100,
+            }}
+            >
+              {this.state.loading
+                ? <ActivityIndicator color="black" />
+                : (
+                  <ScrollView
+                    style={{
+                      flex: 1,
+                      width: '100%',
+                    }}
+                    contentContainerStyle={{
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      marginBottom: 20,
+                      padding: 20,
+                    }}
+                  >
+                    <View style={{ alignItems: 'flex-start', flexDirection: 'row', justifyContent: 'space-between' }}>
+                      <View style={{ flexDirection: 'column' }}>
+                        <Text style={{ color: colors.secondaryBlue, fontSize: 24 }}>
+                          {this.state.variant.product.name}
+                        </Text>
+                        <Text style={{ color: colors.lightBlue, fontSize: 14 }}>
+                          {this.state.variant.barcode}
+                        </Text>
+                      </View>
+                      <TouchableOpacity onPress={() => this.resetState()}>
+                        <Text>X</Text>
+                      </TouchableOpacity>
+                    </View>
+                    <View style={{ marginVertical: 20 }}>
                       <Text style={{ color: colors.lightBlue, fontSize: 14 }}>
-                        {this.state.variant.barcode}
+                        {I18n.t('manufacturer')}
+                      </Text>
+                      <Text style={{ color: colors.secondaryBlue, fontSize: 24 }}>
+                        {this.state.variant.product.manufacturer.name}
                       </Text>
                     </View>
-                    <TouchableOpacity onPress={() => this.resetState()}>
-                      <Text>X</Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={{ marginVertical: 20 }}>
-                    <Text style={{ color: colors.lightBlue, fontSize: 14 }}>
-                      Manufacturer
-                    </Text>
-                    <Text style={{ color: colors.secondaryBlue, fontSize: 24 }}>
-                      {this.state.variant.product.manufacturer.name}
-                    </Text>
-                  </View>
-                  <View style={{ marginVertical: 20 }}>
-                    <Text style={{ color: colors.lightBlue, fontSize: 14 }}>
-                      Category
-                    </Text>
-                    <Text style={{ color: colors.secondaryBlue, fontSize: 24 }}>
-                      {this.state.variant.product.category.name}
-                    </Text>
-                  </View>
-                  <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity
-                      onPress={() => (this.state.quantity > 0
-                        ? this.setState({ quantity: this.state.quantity - 1 })
-                        : null)}
+                    <View style={{ marginVertical: 20 }}>
+                      <Text style={{ color: colors.lightBlue, fontSize: 14 }}>
+                        {I18n.t('category')}
+                      </Text>
+                      <Text style={{ color: colors.secondaryBlue, fontSize: 24 }}>
+                        {this.state.variant.product.category.name}
+                      </Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                      <TouchableOpacity
+                        onPress={() => (this.state.quantity > 0
+                          ? this.setState({ quantity: this.state.quantity - 1 })
+                          : null)}
+                        style={{
+                          alignItems: 'center',
+                          flex: 1,
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <Text style={{ fontSize: 24 }}>-</Text>
+                      </TouchableOpacity>
+                      <TextInput
+                        keyboardType="numeric"
+                        onChangeText={(value =>
+                          this.setState({ quantity: parseInt(value, 10) || 0 }))}
+                        style={{ flex: 1, fontSize: 24, textAlign: 'center' }}
+                        value={this.state.quantity.toString()}
+                      />
+                      <TouchableOpacity
+                        onPress={() => this.setState({ quantity: this.state.quantity + 1 })}
+                        style={{
+                          alignItems: 'center',
+                          flex: 1,
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <Text style={{ fontSize: 24 }}>+</Text>
+                      </TouchableOpacity>
+                    </View>
+                    <Button
+                      onPress={() => this.updateVariant()}
                     >
-                      <Text>-</Text>
-                    </TouchableOpacity>
-                    <TextInput
-                      keyboardType="numeric"
-                      onChangeText={(value => this.setState({ quantity: parseInt(value, 10) }))}
-                      style={{ flex: 1 }}
-                      value={this.state.quantity.toString()}
-                    />
-                    <TouchableOpacity
-                      onPress={() => this.setState({ quantity: this.state.quantity + 1 })}
-                    >
-                      <Text>+</Text>
-                    </TouchableOpacity>
-                  </View>
-                  <TouchableOpacity
-                    onPress={() => this.updateVariant()}
-                  >
-                    <Text>Enregistrer</Text>
-                  </TouchableOpacity>
-                </View>)}
-          </View>
-        </ImageBackground>
-      )
-      : (
-        <Camera
-          ref={(ref) => { this.camera = ref }}
-          captureTarget={Camera.constants.CaptureTarget.temp}
-          onBarCodeRead={e => this.getByBarcode(e)}
-          aspect={Camera.constants.Aspect.fill}
-          style={{ flex: 1 }}
-        />
-      )
+                      {I18n.t('save')}
+                    </Button>
+                  </ScrollView>)}
+            </View>
+          </ImageBackground>
+        )
+        : (
+          <Camera
+            key="camera"
+            ref={(ref) => { this.camera = ref }}
+            captureTarget={Camera.constants.CaptureTarget.temp}
+            onBarCodeRead={e => this.getByBarcode(e)}
+            aspect={Camera.constants.Aspect.fill}
+            style={{ flex: 1 }}
+          />
+        ),
+    ]
   }
 }
 
 CameraView.propTypes = {
   entityId: PropTypes.string.isRequired,
   errorNotification: PropTypes.func.isRequired,
+  goBack: PropTypes.func.isRequired,
   infoNotification: PropTypes.func.isRequired,
   space: PropTypes.string.isRequired,
 }

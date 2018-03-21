@@ -1,5 +1,8 @@
 {
   "email": "Email address",
   "password": "Password",
-  "login": "Login"
+  "login": "Login",
+  "save": "Save",
+  "manufacturer": "Manufacturer",
+  "category": "Category"
 }

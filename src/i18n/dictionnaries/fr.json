@@ -1,3 +1,6 @@
 {
-  
+  "email": "Adresse e-mail",
+  "password": "Mot de passe",
+  "login": "Connexion",
+  "save": "Enregistrer"
 }

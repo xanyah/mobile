@@ -10,3 +10,5 @@ export const resetTo = scene => NavigationActions.reset({
 export const goTo = scene => NavigationActions.navigate({
   routeName: scene,
 })
+
+export const goBack = () => NavigationActions.back()
