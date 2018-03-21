@@ -17,6 +17,12 @@ export const getInventories = params =>
 // Inventory variants
 export const getInventoryVariants = params =>
   xanyahApi.get('inventory_variants', { params })
+export const getInventoryVariant = id =>
+  xanyahApi.get(`inventory_variants/${id}`)
+export const getInventoryVariantByInventory = (inventoryId, variantId) =>
+  xanyahApi.get(`inventory_variants/${inventoryId}/${variantId}`)
+export const updateInventoryVariant = (id, params) =>
+  xanyahApi.patch(`inventory_variants/${id}`, params)
 
 // Products
 export const createProduct = (product, variant) =>

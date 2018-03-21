@@ -7,8 +7,9 @@ import {
 } from '../../actions'
 import { goTo } from '../../utils/navigation-helper'
 
-const mapStateToProps = ({ inventories: { currentInventory, variants } }) => ({
+const mapStateToProps = ({ inventories: { currentInventory, loading, variants } }) => ({
   currentInventory,
+  loading,
   variants,
 })
 

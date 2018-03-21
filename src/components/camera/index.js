@@ -22,6 +22,8 @@ import {
   getVariantByBarcode,
   getShippingVariantByShipping,
   updateShippingVariant,
+  getInventoryVariantByInventory,
+  updateInventoryVariant,
 } from '../../utils/api-helper'
 
 export default class CameraView extends React.Component {
@@ -66,7 +68,7 @@ export default class CameraView extends React.Component {
       this.setState({
         editing: true, imagePath: image.path, loading: true,
       }, () => (this.props.space === 'inventory'
-        ? () => null
+        ? this.getVariant(e.data, getInventoryVariantByInventory)
         : this.getVariant(e.data, getShippingVariantByShipping)))
     })
   }
@@ -74,7 +76,7 @@ export default class CameraView extends React.Component {
   updateVariant() {
     const { id, quantity } = this.state
     const updateFunction = this.props.space === 'inventory'
-      ? () => null
+      ? updateInventoryVariant
       : updateShippingVariant
     updateFunction(id, { quantity })
       .then(() => {
