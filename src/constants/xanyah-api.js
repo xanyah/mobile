@@ -18,7 +18,7 @@ const keys = [
 ]
 
 export const xanyahApi = axios.create({
-  baseURL: 'https://xanyah-staging-pr-37.herokuapp.com/',
+  baseURL: 'http://192.168.1.20:3000/',
   timeout: 5000,
 })
 

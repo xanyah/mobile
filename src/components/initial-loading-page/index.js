@@ -16,13 +16,14 @@ import { setDarkStatusbar, setLightStatusbar, setTranslucent } from '../../utils
 
 export default class Loading extends React.Component {
   componentDidMount() {
-    const { dispatch, getStores } = this.props
+    const { dispatch, getStores, setFirstname } = this.props
     setTranslucent()
     setDarkStatusbar()
     validateToken()
-      .then(() => {
+      .then(({ data: { data: { firstname } } }) => {
         getStores()
         dispatch(resetTo('Dashboard'))
+        setFirstname(firstname)
         setLightStatusbar()
       })
       .catch(() =>
@@ -44,4 +45,5 @@ export default class Loading extends React.Component {
 Loading.propTypes = {
   dispatch: PropTypes.func.isRequired,
   getStores: PropTypes.func.isRequired,
+  setFirstname: PropTypes.func.isRequired,
 }

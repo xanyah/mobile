@@ -10,6 +10,7 @@ import { goTo } from '../../utils/navigation-helper'
 const mapStateToProps = ({ inventories: { currentInventory, loading, variants } }) => ({
   currentInventory,
   loading,
+  type: 'inventory',
   variants,
 })
 

@@ -3,15 +3,21 @@ import {
   SectionList,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native'
 import PropTypes from 'prop-types'
 
 import styles from './styles'
 
 import FloatingButton from '../floating-button'
+import I18n from '../../i18n'
 import {
   hasPermission,
 } from '../../utils/permissions-helper'
+import {
+  shortDate,
+  timeAgo,
+} from '../../utils/date-helper'
 
 
 class InventoriesDashboard extends React.Component {
@@ -25,9 +31,33 @@ class InventoriesDashboard extends React.Component {
     }
   }
 
+  renderInventory(item) {
+    const { openInventory } = this.props
+
+    return (
+      <TouchableOpacity
+        onPress={() => openInventory(item)}
+        style={styles.itemContainer}
+      >
+        <View>
+          <Text style={styles.itemTitle}>{I18n.t('inventory_title', { date: shortDate(item.createdAt) })}</Text>
+          <Text style={styles.itemSubtitle}>
+            {item.locked_at
+              ? I18n.t('done_at', { date: timeAgo(item.createdAt) })
+              : I18n.t('started_at', { date: timeAgo(item.createdAt) })}
+          </Text>
+        </View>
+        <View style={styles.articlesCountContainer}>
+          <Text style={styles.itemCount}>{item.inventoryVariantsCount}</Text>
+          <Text style={styles.itemCountLabel}>{I18n.t('articles').toLowerCase()}</Text>
+        </View>
+      </TouchableOpacity>
+    )
+  }
+
   render() {
     const {
-      createInventory, currentStore, inventories, getInventories, loading, openInventory,
+      createInventory, currentStore, inventories, getInventories, loading,
     } = this.props
     return [
       (
@@ -36,18 +66,11 @@ class InventoriesDashboard extends React.Component {
           keyExtractor={item => item.id}
           onRefresh={getInventories}
           refreshing={loading}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => openInventory(item)}
-              style={styles.itemContainer}
-            >
-              <Text style={styles.itemTitle}>{item.createdAt}</Text>
-            </TouchableOpacity>
-          )}
+          renderItem={({ item }) => this.renderInventory(item)}
           renderSectionHeader={({ section }) => <Text style={styles.header}>{section.title}</Text>}
           sections={[
-            { data: inventories.filter(inventory => !inventory.locked_at), title: 'current' },
-            { data: inventories.filter(inventory => inventory.locked_at), title: 'locked' },
+            { data: inventories.filter(inventory => !inventory.locked_at), title: I18n.t('current') },
+            { data: inventories.filter(inventory => inventory.locked_at), title: I18n.t('done') },
           ]}
         />
       ),

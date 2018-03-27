@@ -23,6 +23,7 @@ import {
   ShippingForm,
 } from '../scenes'
 import HeaderLogoutButton from '../containers/header-logout-button'
+import HeaderHello from '../containers/header-hello'
 import Notification from '../containers/notification'
 
 export const RootStackNavigator = StackNavigator({
@@ -34,7 +35,14 @@ export const RootStackNavigator = StackNavigator({
   },
   Dashboard: {
     navigationOptions: {
+      headerLeft: <HeaderHello />,
       headerRight: <HeaderLogoutButton />,
+      headerStyle: {
+        backgroundColor: colors.white,
+        borderBottomWidth: 0,
+        borderColor: colors.white,
+        elevation: 0,
+      },
     },
     screen: Dashboard,
   },
@@ -64,6 +72,14 @@ export const RootStackNavigator = StackNavigator({
     backgroundColor: colors.white,
   },
   initialRouteName: 'InitialLoading',
+  navigationOptions: {
+    headerTitleStyle: {
+      color: colors.secondaryBlue,
+      fontSize: 18,
+      fontWeight: '500',
+      marginHorizontal: 20,
+    },
+  },
 })
 
 const addListener = createReduxBoundAddListener('root')

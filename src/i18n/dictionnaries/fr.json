@@ -2,5 +2,22 @@
   "email": "Adresse e-mail",
   "password": "Mot de passe",
   "login": "Connexion",
-  "save": "Enregistrer"
+  "save": "Enregistrer",
+  "manufacturer": "Fabricant",
+  "category": "Categorie",
+  "inventories": "Inventaires",
+  "shippings": "Livraisons",
+  "current": "En cours",
+  "done": "Terminés",
+  "short_date_format": "D MMMM",
+  "long_date_format": "D MMMM YYYY",
+  "inventory_title": "Inventaire du {{date}}",
+  "articles": "Articles",
+  "started_at": "Débuté {{date}}",
+  "done_at": "Terminé {{date}}",
+  "new_shipping": "Nouvelle livraison",
+  "select_provider": "Choisissez un fournisseur",
+  "hello_morning": "Bonjour {{name}}",
+  "hello_afternoon": "Bonjour {{name}}",
+  "hello_evening": "Bonsoir {{name}}"
 }

@@ -18,9 +18,10 @@ export const signIn = (email, password, successCallback = null) =>
   (dispatch) => {
     dispatch(updateAuthField('loading', true))
     apiSignIn({ email, password })
-      .then(() => {
+      .then(({ data: { firstname } }) => {
         dispatch(updateAuthField('loading', false))
         dispatch(updateAuthField('signedIn', true))
+        dispatch(updateAuthField('firstname', firstname))
         if (successCallback) {
           successCallback()
         }

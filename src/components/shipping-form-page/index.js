@@ -6,7 +6,15 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 
+import styles from './styles'
+
+import I18n from '../../i18n'
+
 export default class ShippingForm extends React.Component {
+  static navigationOptions = {
+    title: I18n.t('new_shipping'),
+  }
+
   componentWillMount() {
     this.props.getProviders()
   }
@@ -18,9 +26,15 @@ export default class ShippingForm extends React.Component {
       loading,
       providers,
     } = this.props
-    return (
+    return [
+      <Text key="title" style={styles.headerText}>{I18n.t('select_provider')}</Text>,
       <FlatList
-        data={providers}
+        key="list"
+        data={providers.sort((a, b) => {
+          if (a.name < b.name) return -1
+          if (a.name > b.name) return 1
+          return 0
+        })}
         keyExtractor={({ id }) => id}
         onRefresh={getProviders}
         refreshing={loading}
@@ -28,11 +42,12 @@ export default class ShippingForm extends React.Component {
           <TouchableOpacity
             key={item.id}
             onPress={() => createShipping(item.id)}
+            style={styles.providerContainer}
           >
-            <Text>{item.name}</Text>
+            <Text style={styles.provider}>{item.name}</Text>
           </TouchableOpacity>)}
-      />
-    )
+      />,
+    ]
   }
 }
 

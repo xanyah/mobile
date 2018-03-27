@@ -6,10 +6,25 @@ import {
 import PropTypes from 'prop-types'
 
 import FloatingButton from '../floating-button'
+import I18n from '../../i18n'
+import { shortDate } from '../../utils/date-helper'
 
 class InventoryPage extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state
+
+    return {
+      title: params ? params.title : '',
+    }
+  }
+
   componentWillMount() {
     this.props.getVariants()
+    this.props.navigation.setParams({
+      title: this.props.type === 'inventory'
+        ? I18n.t('inventory_title', { date: shortDate(this.props.currentInventory.createdAt) })
+        : this.props.currentShipping.provider.name,
+    })
   }
 
   render() {
@@ -32,10 +47,20 @@ class InventoryPage extends React.Component {
 }
 
 InventoryPage.propTypes = {
+  currentInventory: PropTypes.object,
+  currentShipping: PropTypes.object,
   getVariants: PropTypes.func.isRequired,
   goToCamera: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  navigation: PropTypes.object.isRequired,
+  type: PropTypes.string,
   variants: PropTypes.array.isRequired,
+}
+
+InventoryPage.defaultProps = {
+  currentInventory: {},
+  currentShipping: {},
+  type: '',
 }
 
 export default InventoryPage

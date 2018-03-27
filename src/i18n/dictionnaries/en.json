@@ -4,5 +4,20 @@
   "login": "Login",
   "save": "Save",
   "manufacturer": "Manufacturer",
-  "category": "Category"
+  "category": "Category",
+  "inventories": "Inventories",
+  "shippings": "Shippings",
+  "current": "Current",
+  "done": "Done",
+  "short_date_format": "D MMMM",
+  "long_date_format": "D MMMM YYYY",
+  "inventory_title": "{{date}}'s inventory",
+  "articles": "Articles",
+  "started_at": "Started {{date}}",
+  "done_at": "Done {{date}}",
+  "new_shipping": "New shipping",
+  "select_provider": "Select a provider",
+  "hello_morning": "Good morning {{name}}",
+  "hello_afternoon": "Good afternoon {{name}}",
+  "hello_evening": "Good evening {{name}}"
 }

@@ -33,7 +33,7 @@ export default class Login extends React.Component {
       <TouchableWithoutFeedback
         accessible={false}
         onPress={() => Keyboard.dismiss()}
-        style={{backgroundColor: 'red'}}
+        style={{ backgroundColor: 'red' }}
       >
         <ImageBackground source={wallpaper} style={styles.mainContainer}>
           {errors.map(error =>
