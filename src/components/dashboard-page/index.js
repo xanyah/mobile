@@ -29,6 +29,7 @@ const Dashboard = TabNavigator({
     },
     labelStyle: {
       fontWeight: '500',
+      width: '100%',
     },
     style: {
       backgroundColor: colors.white,

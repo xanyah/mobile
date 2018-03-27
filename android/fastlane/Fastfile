@@ -17,16 +17,37 @@ platform :android do
     gradle(task: 'test')
   end
 
+  desc 'Submit Internal'
+  lane :internal do
+    increment_version_code(
+      gradle_file_path: 'app/build.gradle'
+    )
+    gradle(task: 'assembleRelease')
+    supply(track: 'internal')
+  end
+
   desc 'Submit alpha'
   lane :alpha do
-    gradle(task: 'assembleRelease')
-    supply(track: 'alpha')
+    supply(
+      track: 'internal',
+      track_promote_to: 'alpha',
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
   end
 
   desc 'Submit beta'
-  lane :alpha do
-    gradle(task: 'assembleRelease')
-    supply(track: 'beta')
+  lane :beta do
+    supply(
+      track: 'alpha',
+      track_promote_to: 'beta',
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
   end
 
   desc 'Deploy a new version to the Google Play'

@@ -40,9 +40,9 @@ class InventoriesDashboard extends React.Component {
         style={styles.itemContainer}
       >
         <View>
-          <Text style={styles.itemTitle}>{I18n.t('inventory_title', { date: shortDate(item.createdAt) })}</Text>
+          <Text numberOfLines={1} style={styles.itemTitle}>{I18n.t('inventory_title', { date: shortDate(item.createdAt) })}</Text>
           <Text style={styles.itemSubtitle}>
-            {item.locked_at
+            {item.lockedAt
               ? I18n.t('done_at', { date: timeAgo(item.createdAt) })
               : I18n.t('started_at', { date: timeAgo(item.createdAt) })}
           </Text>
@@ -69,8 +69,8 @@ class InventoriesDashboard extends React.Component {
           renderItem={({ item }) => this.renderInventory(item)}
           renderSectionHeader={({ section }) => <Text style={styles.header}>{section.title}</Text>}
           sections={[
-            { data: inventories.filter(inventory => !inventory.locked_at), title: I18n.t('current') },
-            { data: inventories.filter(inventory => inventory.locked_at), title: I18n.t('done') },
+            { data: inventories.filter(inventory => !inventory.lockedAt), title: I18n.t('current') },
+            { data: inventories.filter(inventory => inventory.lockedAt), title: I18n.t('done') },
           ]}
         />
       ),

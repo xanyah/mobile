@@ -1,13 +1,15 @@
 {
   "name": "Xanyah",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "android:alpha": "cd android && ENVFILE=../.env ./gradlew clean assembleRelease",
+    "android:internal": "cd android && bundle update && ENVFILE=../.env bundle exec fastlane android internal",
+    "android:alpha": "cd android && bundle update && ENVFILE=../.env bundle exec fastlane android alpha",
+    "android:beta": "cd android && bundle update && ENVFILE=../.env bundle exec fastlane android beta",
     "lint": "eslint src/* --fix",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "testflight": "cd ios && bundle exec fastlane ios beta",
+    "testflight": "cd ios && bundle update && bundle exec fastlane ios beta",
     "version:up": "node ./node_modules/react-native-version-up/index.js"
   },
   "dependencies": {
@@ -21,6 +23,7 @@
     "react-native-config": "^0.11.5",
     "react-native-fs": "^2.9.10",
     "react-native-i18n": "^2.0.10",
+    "react-native-material-menu": "^0.2.5",
     "react-navigation": "^1.0.0-beta.22",
     "react-navigation-redux-helpers": "^1.0.1",
     "react-redux": "^5.0.6",

@@ -12,6 +12,7 @@ import {
 } from 'react-navigation'
 import { createReduxBoundAddListener } from 'react-navigation-redux-helpers'
 
+import { icons } from '../images'
 import { colors } from '../constants/styles'
 import {
   Camera,
@@ -73,11 +74,14 @@ export const RootStackNavigator = StackNavigator({
   },
   initialRouteName: 'InitialLoading',
   navigationOptions: {
+    headerBackImage: icons.previous,
     headerTitleStyle: {
       color: colors.secondaryBlue,
       fontSize: 18,
       fontWeight: '500',
       marginHorizontal: 20,
+      textAlign: 'center',
+      width: '100%',
     },
   },
 })

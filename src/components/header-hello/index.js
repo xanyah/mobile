@@ -23,6 +23,8 @@ const getHello = () => {
 
 const Hello = ({ firstname }) => (
   <Text
+    ellipsizeMode="middle"
+    numberOfLines={1}
     style={styles.text}
   >
     {I18n.t(getHello(), { name: firstname })}

@@ -5,17 +5,21 @@ import {
   getInventoryVariants,
   updateCameraField,
 } from '../../actions'
-import { goTo } from '../../utils/navigation-helper'
+import { lockInventory, deleteInventory } from '../../utils/api-helper'
+import { goTo, goBack } from '../../utils/navigation-helper'
 
 const mapStateToProps = ({ inventories: { currentInventory, loading, variants } }) => ({
   currentInventory,
+  delete: deleteInventory,
   loading,
+  lock: lockInventory,
   type: 'inventory',
   variants,
 })
 
 const mapDispatchToProps = dispatch => ({
   dispatch,
+  goBack: () => dispatch(goBack()),
 })
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({

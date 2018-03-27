@@ -39,9 +39,9 @@ class ShippingsDashboard extends React.Component {
         style={styles.itemContainer}
       >
         <View>
-          <Text style={styles.itemTitle}>{item.provider.name}</Text>
+          <Text numberOfLines={1} style={styles.itemTitle}>{item.provider.name}</Text>
           <Text style={styles.itemSubtitle}>
-            {item.locked_at
+            {item.lockedAt
               ? I18n.t('done_at', { date: timeAgo(item.createdAt) })
               : I18n.t('started_at', { date: timeAgo(item.createdAt) })}
           </Text>
@@ -68,8 +68,8 @@ class ShippingsDashboard extends React.Component {
           renderItem={({ item }) => this.renderShipping(item)}
           renderSectionHeader={({ section }) => <Text style={styles.header}>{section.title}</Text>}
           sections={[
-            { data: shippings.filter(shipping => !shipping.locked_at), title: I18n.t('current') },
-            { data: shippings.filter(shipping => shipping.locked_at), title: I18n.t('done') },
+            { data: shippings.filter(shipping => !shipping.lockedAt), title: I18n.t('current') },
+            { data: shippings.filter(shipping => shipping.lockedAt), title: I18n.t('done') },
           ]}
         />
       ),

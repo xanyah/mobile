@@ -1,18 +1,21 @@
 import React from 'react'
 import {
+  Image,
   TouchableOpacity,
 } from 'react-native'
 import PropTypes from 'prop-types'
+
+import { icons } from '../../images'
 
 const LogoutButton = ({ signOut }) => (
   <TouchableOpacity
     onPress={signOut}
     style={{
-      backgroundColor: 'red',
-      height: 20,
-      width: 20,
+      marginHorizontal: 20,
     }}
-  />
+  >
+    <Image source={icons.power} />
+  </TouchableOpacity>
 )
 
 LogoutButton.propTypes = {

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { infoNotification, errorNotification } from '../../actions'
+import { successNotification, errorNotification } from '../../actions'
 import Camera from '../../components/camera'
 import { goBack } from '../../utils/navigation-helper'
 
@@ -12,7 +12,7 @@ const mapStateToProps = ({ camera: { entityId, space } }) => ({
 const mapDispatchToProps = dispatch => ({
   errorNotification: text => dispatch(errorNotification(text)),
   goBack: () => dispatch(goBack()),
-  infoNotification: text => dispatch(infoNotification(text)),
+  successNotification: text => dispatch(successNotification(text)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Camera)

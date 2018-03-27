@@ -29,7 +29,7 @@ export default {
     paddingRight: 0,
     ...Platform.select({
       android: {
-
+        elevation: 2,
       },
       ios: {
         shadowColor: colors.black,

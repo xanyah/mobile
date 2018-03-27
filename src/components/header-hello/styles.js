@@ -5,6 +5,7 @@ export default {
     color: colors.secondaryBlue,
     fontSize: 18,
     fontWeight: '500',
-    marginHorizontal: 20,
+    paddingHorizontal: 20,
+    width: '100%',
   },
 }

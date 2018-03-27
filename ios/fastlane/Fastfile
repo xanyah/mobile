@@ -23,6 +23,12 @@ platform :ios do
       type: 'appstore'
     )
     gym(scheme: 'Xanyah')
-    testflight
+    testflight(
+      changelog: 'New update',
+      distribute_external: true,
+      notify_external_testers: true,
+      demo_account_required: true,
+      groups: ['Testers']
+    )
   end
 end

@@ -13,6 +13,10 @@ export const createInventory = inventory =>
   xanyahApi.post('inventories', { inventory })
 export const getInventories = params =>
   xanyahApi.get('inventories', { params })
+export const lockInventory = id =>
+  xanyahApi.patch(`inventories/${id}/lock`)
+export const deleteInventory = id =>
+  xanyahApi.delete(`inventories/${id}`)
 
 // Inventory variants
 export const getInventoryVariants = params =>
@@ -37,6 +41,10 @@ export const createShipping = shipping =>
   xanyahApi.post('shippings', { shipping })
 export const getShippings = params =>
   xanyahApi.get('shippings', { params })
+export const lockShipping = id =>
+  xanyahApi.patch(`shippings/${id}/lock`)
+export const deleteShipping = id =>
+  xanyahApi.delete(`shippings/${id}`)
 
 // Shipping variants
 export const getShippingVariants = params =>

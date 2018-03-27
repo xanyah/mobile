@@ -2,6 +2,7 @@
 import React from 'react'
 import {
   ActivityIndicator,
+  Image,
   ImageBackground,
   ScrollView,
   Text,
@@ -15,6 +16,7 @@ import Camera from 'react-native-camera'
 import PropTypes from 'prop-types'
 
 import Button from '../button'
+import { icons } from '../../images'
 import {
   colors,
 } from '../../constants/styles'
@@ -58,9 +60,11 @@ export default class CameraView extends React.Component {
             })
           })
           .catch(() =>
-            this.setState({ loading: false, variant: {} })))
+            this.setState({ editing: false, loading: false, variant: {} }, () =>
+              this.props.errorNotification(I18n.t('variant_not_found')))))
       .catch(() =>
-        this.setState({ loading: false, variant: {} }))
+        this.setState({ editing: false, loading: false, variant: {} }, () =>
+          this.props.errorNotification(I18n.t('variant_not_found'))))
   }
 
   getByBarcode(e) {
@@ -80,11 +84,11 @@ export default class CameraView extends React.Component {
       : updateShippingVariant
     updateFunction(id, { quantity })
       .then(() => {
-        this.props.infoNotification('Variant mis à jour')
+        this.props.successNotification(I18n.t('variant_updated'))
         this.resetState()
       })
       .catch(() =>
-        this.props.errorNotification('Erreur lors de la mise à jour'))
+        this.props.errorNotification(I18n.t('variant_update_error')))
   }
 
   resetState() {
@@ -106,13 +110,15 @@ export default class CameraView extends React.Component {
         style={{
           height: 50,
           left: 0,
+          paddingHorizontal: 20,
+          paddingVertical: 10,
           position: 'absolute',
           top: 0,
           width: 40,
           zIndex: 5,
         }}
       >
-        <Text style={{ fontSize: 24 }}>{'<'}</Text>
+        <Image source={icons.previousWhite} />
       </TouchableOpacity>,
       this.state.editing
         ? (
@@ -146,7 +152,7 @@ export default class CameraView extends React.Component {
                         </Text>
                       </View>
                       <TouchableOpacity onPress={() => this.resetState()}>
-                        <Text>X</Text>
+                        <Image source={icons.close} />
                       </TouchableOpacity>
                     </View>
                     <View style={{ marginVertical: 20 }}>
@@ -176,7 +182,7 @@ export default class CameraView extends React.Component {
                           justifyContent: 'center',
                         }}
                       >
-                        <Text style={{ fontSize: 24 }}>-</Text>
+                        <Image source={icons.minus} />
                       </TouchableOpacity>
                       <TextInput
                         keyboardType="numeric"
@@ -193,7 +199,7 @@ export default class CameraView extends React.Component {
                           justifyContent: 'center',
                         }}
                       >
-                        <Text style={{ fontSize: 24 }}>+</Text>
+                        <Image source={icons.plus} />
                       </TouchableOpacity>
                     </View>
                     <Button
@@ -223,6 +229,6 @@ CameraView.propTypes = {
   entityId: PropTypes.string.isRequired,
   errorNotification: PropTypes.func.isRequired,
   goBack: PropTypes.func.isRequired,
-  infoNotification: PropTypes.func.isRequired,
   space: PropTypes.string.isRequired,
+  successNotification: PropTypes.func.isRequired,
 }
