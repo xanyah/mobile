@@ -40,6 +40,7 @@ export const getInventories = () =>
 
 export const getInventoryVariants = inventoryId =>
   (dispatch) => {
+    dispatch(updateInventoriesField('variants', []))
     dispatch(updateInventoriesField('loading', true))
     getApiInventoryVariants({ inventoryId })
       .then(({ data }) => {

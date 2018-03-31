@@ -40,6 +40,8 @@ export const getShippings = () =>
 
 export const getShippingVariants = shippingId =>
   (dispatch) => {
+    console.log(shippingId)
+    dispatch(updateShippingsField('variants', []))
     dispatch(updateShippingsField('loading', true))
     getApiShippingVariants({ shippingId })
       .then(({ data }) => {

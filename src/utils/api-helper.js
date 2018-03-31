@@ -1,3 +1,8 @@
+import {
+  camelizeKeys,
+  decamelizeKeys,
+} from 'humps'
+
 import { xanyahApi } from '../constants/xanyah-api'
 
 // Auth
@@ -20,7 +25,7 @@ export const deleteInventory = id =>
 
 // Inventory variants
 export const getInventoryVariants = params =>
-  xanyahApi.get('inventory_variants', { params })
+  xanyahApi.get('inventory_variants', { params: decamelizeKeys(params) })
 export const getInventoryVariant = id =>
   xanyahApi.get(`inventory_variants/${id}`)
 export const getInventoryVariantByInventory = (inventoryId, variantId) =>
@@ -48,7 +53,7 @@ export const deleteShipping = id =>
 
 // Shipping variants
 export const getShippingVariants = params =>
-  xanyahApi.get('shipping_variants', { params })
+  xanyahApi.get('shipping_variants', { params: decamelizeKeys(params) })
 export const getShippingVariant = id =>
   xanyahApi.get(`shipping_variants/${id}`)
 export const getShippingVariantByShipping = (shippingId, variantId) =>

@@ -26,7 +26,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...dispatchProps,
   ...ownProps,
   ...stateProps,
-  getVariants: () => dispatchProps.dispatch(getInventoryVariants(stateProps.currentInventory)),
+  getVariants: () => dispatchProps.dispatch(getInventoryVariants(stateProps.currentInventory.id)),
   goToCamera: () => {
     dispatchProps.dispatch(updateCameraField('space', 'inventory'))
     dispatchProps.dispatch(updateCameraField('entityId', stateProps.currentInventory.id))
