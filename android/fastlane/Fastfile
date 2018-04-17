@@ -29,6 +29,7 @@ platform :android do
   desc 'Submit alpha'
   lane :alpha do
     supply(
+      check_superseded_tracks: true,
       track: 'internal',
       track_promote_to: 'alpha',
       skip_upload_apk: true,
@@ -41,6 +42,7 @@ platform :android do
   desc 'Submit beta'
   lane :beta do
     supply(
+      check_superseded_tracks: true,
       track: 'alpha',
       track_promote_to: 'beta',
       skip_upload_apk: true,
