@@ -7,6 +7,10 @@ export default {
     fontWeight: '500',
     textAlign: 'center',
   },
+  logo: {
+    resizeMode: 'contain',
+    width: '60%',
+  },
   mainContainer: {
     alignItems: 'center',
     flex: 1,

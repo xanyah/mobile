@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Image,
   ImageBackground,
   Keyboard,
   StatusBar,
@@ -12,7 +13,7 @@ import styles from './styles'
 
 import Button from '../button'
 import LoginInput from '../login-input'
-import { wallpaper } from '../../images'
+import { wallpaper, logo } from '../../images'
 import i18n from '../../i18n'
 
 
@@ -36,6 +37,7 @@ export default class Login extends React.Component {
         style={{ backgroundColor: 'red' }}
       >
         <ImageBackground source={wallpaper} style={styles.mainContainer}>
+          <Image source={logo} style={styles.logo} />
           {errors.map(error =>
             <Text key={error} style={styles.error}>{error}</Text>)}
           <LoginInput
