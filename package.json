@@ -3,9 +3,11 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
+    "android:dev": "ENVFILE=../.env react-native run-android",
     "android:internal": "cd android && bundle update && ENVFILE=../.env bundle exec fastlane android internal",
     "android:alpha": "cd android && bundle update && ENVFILE=../.env bundle exec fastlane android alpha",
     "android:beta": "cd android && bundle update && ENVFILE=../.env bundle exec fastlane android beta",
+    "ios:dev": "react-native run-ios",
     "lint": "eslint src/* --fix",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
@@ -44,6 +46,7 @@
     "eslint-plugin-require": "^0.0.1",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "22.0.4",
+    "react-native-cli": "^2.0.1",
     "react-native-version-up": "^1.0.8",
     "react-test-renderer": "16.0.0"
   },
