@@ -1,6 +1,7 @@
 package com.xanyah
 
 import android.app.Application
+import android.os.Bundle
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost

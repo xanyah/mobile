@@ -10,7 +10,6 @@ import SecureStorage from 'react-native-fast-secure-storage';
 import {Container} from './styled-components';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useAuth} from '../../contexts/AuthContext';
 
 type RootStackParamList = {
   Signin: undefined;
@@ -24,13 +23,14 @@ const signinSchema = z.object({
   password: z.string(),
 });
 
-const SignIn = () => {
+const Shippings = () => {
   const navigation = useNavigation<NavigationProp>();
-
-  const {refetchUser} = useAuth();
-
   const {handleSubmit, control} = useForm({
     resolver: zodResolver(signinSchema),
+    defaultValues: {
+      username: '',
+      password: '',
+    },
   });
   const passwordInputRef = useRef<RNTextInput>(null);
 
@@ -39,13 +39,12 @@ const SignIn = () => {
     onError: error => {
       console.log(error);
     },
-    onSuccess: async response => {
+    onSuccess: response => {
       SecureStorage.setItem(
-        'Xanyah:Bearer',
+        `Xanyah:Bearer`,
         `${response.data.tokenType} ${response.data.accessToken}`,
       );
-
-      await refetchUser();
+      navigation.navigate('MainApp');
     },
   });
 
@@ -95,4 +94,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Shippings;
