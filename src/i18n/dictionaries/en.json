@@ -1,0 +1,426 @@
+{
+  "account": {
+    "firstnameLabel": "First name",
+    "firstnamePlaceholder": "Your first name",
+    "generalInformations": "General information",
+    "lastnameLabel": "Surname",
+    "lastnamePlaceholder": "Your family name",
+    "pageSubtitle": "Update your account data",
+    "pageTitle": "My account",
+    "passwordConfirmationLabel": "Confirmation",
+    "passwordConfirmationPlaceholder": "Confirmation of your new password",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Your new password",
+    "security": "Security",
+    "signOut": "Sign out"
+  },
+  "categories": {
+    "createButtonLabel": "Create a category",
+    "pageTitle": "Categories",
+    "searchPlaceholder": "Search for a category ...",
+    "table": {
+      "name": "Category name",
+      "parentCategory": "Parent category",
+      "vat": "VAT"
+    }
+  },
+  "category": {
+    "generalInformations": "General information",
+    "nameLabel": "Name",
+    "namePlaceholder": "Category name",
+    "newCategoryPageTitle": "New category",
+    "pageSubtitle": "Enter here the information in your category",
+    "parentCategoryLabel": "Parent category",
+    "parentCategoryPlaceholder": "Select a category..."
+  },
+  "checkout": {
+    "customer": "Customers",
+    "customerPlaceholder": "Select a customer...",
+    "customPayment": {
+      "addButton": "Add a payment method",
+      "paymentTypeLabel": "Payment method",
+      "paymentTypePlaceholder": "Select a payment method...",
+      "totalAmountLabel": "Amount",
+      "unattributedNegative": "There is {{ amount }} too much",
+      "unattributedPositive": "He's staying {{ amount }} to be distributed"
+    },
+    "flatPromotionLabel": "Amount",
+    "newCustomerButtonLabel": "Create a customer",
+    "pageSubtitle": "Enter the data of your collection here",
+    "pageTitle": "Collection",
+    "payment": "Payment",
+    "paymentMethodOtherButton": "Other",
+    "percentPromotionLabel": "Percentage",
+    "price": "Total & Discounts",
+    "products": "Products",
+    "promotionAddButton": "Add a discount",
+    "promotionAmountLabel": "Amount",
+    "promotionAmountPlaceholder": "Promotion",
+    "searchButton": "To research",
+    "searchPlaceholder": "Barcode or article manufacturer code",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "validateButton": "Validate the sale"
+  },
+  "components": {
+    "dataTable": {
+      "noResults": "No results"
+    }
+  },
+  "customAttribute": {
+    "generalInformations": "General information",
+    "nameLabel": "Name",
+    "namePlaceholder": "Personalized attribute name",
+    "newPageTitle": "New personalized attribute",
+    "pageSubtitle": "Personalized attributes make it possible to add attributes to the products",
+    "typeLabel": "Attribute type"
+  },
+  "customAttributes": {
+    "createButtonLabel": "Create a personalized attribute",
+    "pageTitle": "Personalized attributes",
+    "searchPlaceholder": "Search for a personalized attribute ...",
+    "table": {
+      "name": "Personalized attribute name",
+      "type": "Kind"
+    }
+  },
+  "customer": {
+    "addressLabel": "Mailing address",
+    "addressPlaceholder": "Customer postal address",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "Customer email",
+    "firstnameLabel": "First name",
+    "firstnamePlaceholder": "Customer's first name",
+    "generalInformations": "General information",
+    "lastnameLabel": "Surname",
+    "lastnamePlaceholder": "Customer surname",
+    "newPageTitle": "New customer",
+    "notesLabel": "Notes",
+    "notesPlaceholder": "Client notes",
+    "pageSubtitle": "Enter your customer information here",
+    "phoneLabel": "Phone number",
+    "phonePlaceholder": "Customer phone number"
+  },
+  "customers": {
+    "createButtonLabel": "Create a customer",
+    "pageTitle": "Customers",
+    "searchPlaceholder": "Search for a client ...",
+    "table": {
+      "email": "E-mail address",
+      "name": "Client name",
+      "phone": "Phone"
+    }
+  },
+  "dailyReport": {
+    "pageTitle": "Daily report",
+    "print": "Print",
+    "sales": "Sales",
+    "total": "Total incl. tax",
+    "emptySales": "No sales were made on this day.",
+    "receiptNumber": "Receipt N° {{receiptNumber}}"
+  },
+  "global": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "create": "Create",
+    "edit": "Edit",
+    "loading": "Loading in progress ...",
+    "save": "Save",
+    "saved": "Saved",
+    "saving": "Saving...",
+    "savingError": "Error while saving"
+  },
+  "inventories": {
+    "pageTitle": "Inventories"
+  },
+  "manufacturer": {
+    "codeHint": "A code to identify the manufacturer (often the first 4 letters of the manufacturer)",
+    "codeLabel": "Code",
+    "codePlaceholder": "Manufacturer's code",
+    "generalInformations": "General information",
+    "nameLabel": "Name",
+    "namePlaceholder": "Manufacturer's name",
+    "newPageTitle": "New manufacturer",
+    "notesLabel": "Notes",
+    "notesPlaceholder": "Notes on the manufacturer",
+    "pageSubtitle": "Enter here the information from your manufacturer"
+  },
+  "manufacturers": {
+    "createButtonLabel": "Create a manufacturer",
+    "pageTitle": "Manufacturers",
+    "searchPlaceholder": "Search for a manufacturer ...",
+    "table": {
+      "code": "Code",
+      "name": "Manufacturer's name"
+    }
+  },
+  "order": {
+    "cancel": "Cancel the order",
+    "customer": "Customer",
+    "deliver": "Order received",
+    "order": "Order sent",
+    "pageSubtitle": "Order placed on {{ orderDate }}",
+    "pageTitle": "Order {{ orderNumber }}",
+    "products": "Order articles",
+    "productTable": {
+      "name": "Article name",
+      "quantity": "Quantity"
+    },
+    "states": {
+      "cancelled": "Canceled",
+      "delivered": "Received",
+      "ordered": "Ordered",
+      "pending": "On hold",
+      "withdrawn": "Withdrawn"
+    },
+    "withdraw": "Command withdrawn"
+  },
+  "orderNew": {
+    "customerLabel": "Customer",
+    "customerPlaceholder": "Select a customer...",
+    "generalInformations": "General information",
+    "pageSubtitle": "Enter here the data of your new customer order",
+    "pageTitle": "New order",
+    "productLabel": "Products",
+    "productPlaceholder": "Select a product ..."
+  },
+  "orders": {
+    "createButtonLabel": "Create an order",
+    "pageTitle": "Orders",
+    "searchPlaceholder": "Search for an order ...",
+    "table": {
+      "createdAt": "Date of creation",
+      "customer": "Customer",
+      "id": "Order number",
+      "state": "Status",
+      "updatedAt": "Last update"
+    }
+  },
+  "paymentType": {
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Description of the payment method",
+    "generalInformations": "General information",
+    "nameLabel": "Name",
+    "namePlaceholder": "Name of the payment method",
+    "newPageTitle": "New payment method ",
+    "pageSubtitle": "Enter the data from your payment method here"
+  },
+  "paymentTypes": {
+    "createButtonLabel": "Create a payment method",
+    "pageTitle": "Payment methods",
+    "searchPlaceholder": "Search a payment method...",
+    "table": {
+      "description": "Description",
+      "name": "Payment method name"
+    }
+  },
+  "print": {
+    "invoice": {
+      "invoiceNumber": "Invoice N°{{invoiceNumber}}",
+      "price": "Price",
+      "productName": "Product",
+      "quantity": "Qty",
+      "taxFreeAmount": "Total excl. tax: {{ amount }}",
+      "totalAmount": "Total incl. tax: {{ amount }}",
+      "vatAmount": "VAT: {{ amount }}"
+    },
+    "receipt": {
+      "price": "Price",
+      "productName": "Product",
+      "quantity": "Qty",
+      "receiptNumber": "Receipt N°{{receiptNumber}}",
+      "totalAmount": "Total incl. tax: {{ amount }}"
+    }
+  },
+  "product": {
+    "amountHint": "The price including tax corresponds to the final price which will be paid by the customer",
+    "amountLabel": "Price TTC",
+    "amountPlaceholder": "Price TTC of the article",
+    "buyingAmountHint": "The purchase price of the item is the price from which it was purchased from the supplier",
+    "buyingAmountLabel": "Purchase price",
+    "buyingAmountPlaceholder": "Article purchase price",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Select a category...",
+    "copyUpcToSku": "Copy UPC",
+    "customAttributes": "Custom attributes",
+    "deleteImageDescription": "Are you sure you want to delete this image ?",
+    "deleteImageTitle": "Delete confirmation",
+    "generalInformations": "General information",
+    "generateSku": "Generate",
+    "imagesLabel": "Images",
+    "logistics": "Logistics",
+    "manufacturerLabel": "Manufacturer",
+    "manufacturerPlaceholder": "Select a manufacturer...",
+    "manufacturerSkuHint": "The manufacturer code is a code generally composed of the first 4 letters of the manufacturer's name and then the article identifier",
+    "manufacturerSkuLabel": "Manufacturer code",
+    "manufacturerSkuPlaceholder": "Article manufacturer code",
+    "nameLabel": "Name",
+    "namePlaceholder": "Article name",
+    "newPageTitle": "New article",
+    "pageSubtitle": "Enter here the information of your product",
+    "pricing": "Pricing",
+    "ratioCheckbox": "Calculate prices through a ratio",
+    "ratioHint": "The ratio is a multiplication factor used to calculate the price including VAT",
+    "ratioLabel": "Ratio",
+    "ratioPlaceholder": "Ratio to calculate price including VAT",
+    "skuHint": "SKU is a barcode specific to the store to identify the article",
+    "skuLabel": "SKU",
+    "skuPlaceholder": "SKU of the article",
+    "taxFreeAmountHint": "The price excluding taxes is the price of the item before applying VAT",
+    "taxFreeAmountLabel": "Price excluding taxes",
+    "taxFreeAmountPlaceholder": "Price excluding taxes of the article",
+    "upcHint": "The UPC is the original barcode of the article",
+    "upcLabel": "UPC",
+    "upcPlaceholder": "UPC of the article",
+    "vatLabel": "VAT",
+    "vatPlaceholder": "Select a VAT rate..."
+  },
+  "products": {
+    "createButtonLabel": "Create an article",
+    "pageTitle": "Articles",
+    "searchPlaceholder": "Search for an article ...",
+    "table": {
+      "amount": "Amount",
+      "category": "Category",
+      "manufacturer": "Manufacturer",
+      "manufacturerSku": "Manufacturer code",
+      "name": "Article name",
+      "quantity": "Quantity",
+      "sku": "Barcode"
+    }
+  },
+  "provider": {
+    "generalInformations": "General information",
+    "nameLabel": "Name",
+    "namePlaceholder": "Supplier name",
+    "newPageTitle": "New supplier",
+    "notesLabel": "Notes",
+    "notesPlaceholder": "Notes on the supplier",
+    "pageSubtitle": "Enter here the information from your supplier"
+  },
+  "providers": {
+    "createButtonLabel": "Create a supplier",
+    "pageTitle": "Supplier",
+    "searchPlaceholder": "Search for a supplier ...",
+    "table": {
+      "name": "Supplier name"
+    }
+  },
+  "sale": {
+    "amount": "Sale",
+    "customer": "Customer",
+    "generalInformations": "General information",
+    "pageSubtitle": "Sale made on {{ saleDate }}",
+    "pageTitle": "Sale {{ saleNumber }}",
+    "printInvoice": "Print invoice",
+    "printReceipt": "Print receipt",
+    "products": "Articles sold",
+    "user": "Seller"
+  },
+  "sales": {
+    "pageTitle": "Sales",
+    "searchPlaceholder": "Search for a sale ...",
+    "table": {
+      "amount": "Amount",
+      "createdAt": "Date of sale",
+      "id": "Sale number",
+      "user": "Seller"
+    }
+  },
+  "settings": {
+    "formSection": "Printer configuration",
+    "pageSizePrinterLabel": "Page size",
+    "pageSizePrinterPlaceholder": "Printer page size",
+    "pageSubtitle": "Configure your printer",
+    "pageTitle": "Settings",
+    "printerLabel": "Printer",
+    "printerPlaceholder": "Your printer",
+    "printError": "Print error",
+    "printSuccess": "Print successful",
+    "testPrinter": "Test your printer"
+  },
+  "shipping": {
+    "cancel": "Cancel delivery",
+    "customer": "Customer",
+    "pageSubtitle": "Order placed on {{ shippingDate }}",
+    "pageTitle": "Order {{ shippingNumber }}",
+    "products": "Delivery items",
+    "productTable": {
+      "name": "Article name",
+      "quantity": "Quantity"
+    },
+    "existingProduct": {
+      "title": "Product Already Exists",
+      "description": "This product is already in your selection. Do you want to increase its quantity?"
+    },
+    "states": {
+      "cancelled": "Canceled",
+      "pending": "On hold",
+      "validated": "Validated"
+    },
+    "validate": "To validate"
+  },
+  "shippingNew": {
+    "generalInformations": "General information",
+    "newProductButtonLabel": "Create a product",
+    "pageSubtitle": "Enter the data from your new shipping here",
+    "pageTitle": "New delivery",
+    "productLabel": "Product",
+    "productPlaceholder": "Select a product ...",
+    "providerLabel": "Provider",
+    "providerPlaceholder": "Select a provider ..."
+  },
+  "shippings": {
+    "createButtonLabel": "Create a delivery",
+    "pageTitle": "Deliveries",
+    "searchPlaceholder": "Search a delivery ...",
+    "table": {
+      "createdAt": "Date of creation",
+      "id": "Delivery number",
+      "provider": "Supplier",
+      "state": "Status",
+      "updatedAt": "Last update"
+    }
+  },
+  "sidebar": {
+    "account": "My account",
+    "settings": "Parameters",
+    "stock": "Stock & supply",
+    "store": "My shop"
+  },
+  "signIn": {
+    "emailLabel": "Email",
+    "emailPlaceholder": "Your email address",
+    "errorToast": "Error while signing in",
+    "invalidCredentials": "Invalid credentials",
+    "pageTitle": "Sign in",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Your password",
+    "signInButton": "Sign in",
+    "successToast": "You have been signed in"
+  },
+  "store": {
+    "address": "Address",
+    "address1Label": "Address",
+    "address1Placeholder": "Address of your store",
+    "address2Label": "Additional address",
+    "address2Placeholder": "Additional address of your store",
+    "colorLabel": "Accent color",
+    "countryLabel": "Country",
+    "countryPlaceholder": "Country of your store",
+    "customization": "Customization",
+    "emailAddressLabel": "Email address",
+    "emailAddressPlaceholder": "Email address of your store",
+    "generalInformations": "General information",
+    "nameLabel": "Name",
+    "namePlaceholder": "Name of your store",
+    "pageSubtitle": "Enter the data of your store here",
+    "pageTitle": "Store",
+    "phoneNumberLabel": "Phone number",
+    "phoneNumberPlaceholder": "Phone number of your store",
+    "websiteUrlLabel": "Website",
+    "websiteUrlPlaceholder": "Website of your store",
+    "zipcodeLabel": "Zipcode",
+    "zipcodePlaceholder": "Zipcode of your store"
+  }
+}
