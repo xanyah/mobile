@@ -9,7 +9,6 @@ import {
 import {UseMutateFunction, useMutation, useQuery} from '@tanstack/react-query';
 import {getCurrentUser, signOut as apiSignOut} from '../api/auth';
 import SecureStorage from 'react-native-fast-secure-storage';
-import {User} from '../types/users';
 import {AxiosResponse} from 'axios';
 
 interface AuthContextType {

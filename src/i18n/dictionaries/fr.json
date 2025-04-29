@@ -1,0 +1,426 @@
+{
+  "account": {
+    "firstnameLabel": "Prénom",
+    "firstnamePlaceholder": "Votre prénom",
+    "generalInformations": "Informations générales",
+    "lastnameLabel": "Nom de famille",
+    "lastnamePlaceholder": "Votre nom de famille",
+    "pageSubtitle": "Mettez-ici à jour les données de votre compte",
+    "pageTitle": "Mon compte",
+    "passwordConfirmationLabel": "Confirmation",
+    "passwordConfirmationPlaceholder": "Confirmation de votre nouveau mot de passe",
+    "passwordLabel": "Mot de passe",
+    "passwordPlaceholder": "Votre nouveau mot de passe",
+    "security": "Sécurité",
+    "signOut": "Déconnexion"
+  },
+  "categories": {
+    "createButtonLabel": "Créer une catégorie",
+    "pageTitle": "Catégories",
+    "searchPlaceholder": "Rechercher une catégorie...",
+    "table": {
+      "name": "Nom de la catégorie",
+      "parentCategory": "Catégorie parente",
+      "vat": "TVA"
+    }
+  },
+  "category": {
+    "generalInformations": "Informations générales",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Nom de la catégorie",
+    "newCategoryPageTitle": "Nouvelle catégorie",
+    "pageSubtitle": "Saisissez ici les informations de votre catégorie",
+    "parentCategoryLabel": "Catégorie parente",
+    "parentCategoryPlaceholder": "Sélectionner une catégorie..."
+  },
+  "checkout": {
+    "customer": "Clients",
+    "customerPlaceholder": "Sélectionner un client...",
+    "customPayment": {
+      "addButton": "Ajouter un moyen de paiement",
+      "paymentTypeLabel": "Moyen de paiement",
+      "paymentTypePlaceholder": "Sélectionner un moyen de paiement...",
+      "totalAmountLabel": "Montant",
+      "unattributedNegative": "Il y a {{ amount }} en trop",
+      "unattributedPositive": "Il reste {{ amount }} à distribuer"
+    },
+    "flatPromotionLabel": "Montant",
+    "newCustomerButtonLabel": "Créer un client",
+    "pageSubtitle": "Saisissez ici les données de votre encaissement",
+    "pageTitle": "Encaissement",
+    "payment": "Paiement",
+    "paymentMethodOtherButton": "Autre",
+    "percentPromotionLabel": "Pourcentage",
+    "price": "Total & Remises",
+    "products": "Articles",
+    "promotionAddButton": "Ajouter une remise",
+    "promotionAmountLabel": "Montant",
+    "promotionAmountPlaceholder": "Montant de la promotion",
+    "searchButton": "Rechercher",
+    "searchPlaceholder": "Code barre ou code fabricant de l'article",
+    "subtotal": "Sous-total",
+    "total": "Total",
+    "validateButton": "Valider la vente"
+  },
+  "components": {
+    "dataTable": {
+      "noResults": "Aucun résultat"
+    }
+  },
+  "customAttribute": {
+    "generalInformations": "Informations générales",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Nom de l'attribut personnalisé",
+    "newPageTitle": "Nouvel attribut personnalisé",
+    "pageSubtitle": "Les attributs personnalisés permettent d'ajouter des attributs sur les articles",
+    "typeLabel": "Type d'attribut"
+  },
+  "customAttributes": {
+    "createButtonLabel": "Créer un attribut personnalisé",
+    "pageTitle": "Attributs personnalisés",
+    "searchPlaceholder": "Rechercher un attribut personnalisé...",
+    "table": {
+      "name": "Nom de l'attribut personnalisé",
+      "type": "Type"
+    }
+  },
+  "customer": {
+    "addressLabel": "Adresse postale",
+    "addressPlaceholder": "Adresse postale du client",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Email du client",
+    "firstnameLabel": "Prénom",
+    "firstnamePlaceholder": "Prénom du client",
+    "generalInformations": "Informations générales",
+    "lastnameLabel": "Nom de famille",
+    "lastnamePlaceholder": "Nom de famille du client",
+    "newPageTitle": "Nouveau client",
+    "notesLabel": "Notes",
+    "notesPlaceholder": "Notes sur le client",
+    "pageSubtitle": "Saisissez ici les informations de votre client",
+    "phoneLabel": "Numéro de téléphone",
+    "phonePlaceholder": "Numéro de téléphone du client"
+  },
+  "customers": {
+    "createButtonLabel": "Créer un client",
+    "pageTitle": "Clients",
+    "searchPlaceholder": "Rechercher un client...",
+    "table": {
+      "email": "Adresse email",
+      "name": "Nom du client",
+      "phone": "Téléphone"
+    }
+  },
+  "dailyReport": {
+    "pageTitle": "Rapport journalier",
+    "print": "Imprimer",
+    "total": "Total TTC",
+    "sales": "Ventes",
+    "emptySales": "Aucune vente n'a été réalisée ce jour.",
+    "receiptNumber": "Ticket N° {{receiptNumber}}"
+  },
+  "global": {
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "create": "Créer",
+    "edit": "Éditer",
+    "loading": "Chargement en cours...",
+    "save": "Enregistrer",
+    "saved": "Enregistré",
+    "saving": "Enregistrement en cours...",
+    "savingError": "Erreur lors de l'enregistrement"
+  },
+  "inventories": {
+    "pageTitle": "Inventaires"
+  },
+  "manufacturer": {
+    "codeHint": "Un code permettant d'identifier le fabricant (souvent les 4 premières lettres du fabricant)",
+    "codeLabel": "Code",
+    "codePlaceholder": "Code du fabricant",
+    "generalInformations": "Informations générales",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Nom du fabricant",
+    "newPageTitle": "Nouveau fabricant",
+    "notesLabel": "Notes",
+    "notesPlaceholder": "Notes sur le fabricant",
+    "pageSubtitle": "Saisissez ici les informations de votre fabricant"
+  },
+  "manufacturers": {
+    "createButtonLabel": "Créer un fabricant",
+    "pageTitle": "Fabricants",
+    "searchPlaceholder": "Rechercher un fabricant...",
+    "table": {
+      "code": "Code",
+      "name": "Nom du fabricant"
+    }
+  },
+  "order": {
+    "cancel": "Annuler la commande",
+    "customer": "Client",
+    "deliver": "Commande reçue",
+    "order": "Commande envoyée",
+    "pageSubtitle": "Commande passée le {{ orderDate }}",
+    "pageTitle": "Commande {{ orderNumber }}",
+    "products": "Articles de la commande",
+    "productTable": {
+      "name": "Nom de l'article",
+      "quantity": "Quantité"
+    },
+    "states": {
+      "cancelled": "Annulée",
+      "delivered": "Reçue",
+      "ordered": "Commandée",
+      "pending": "En attente",
+      "withdrawn": "Retirée"
+    },
+    "withdraw": "Commande retirée"
+  },
+  "orderNew": {
+    "customerLabel": "Client",
+    "customerPlaceholder": "Sélectionner un client...",
+    "generalInformations": "Informations générales",
+    "pageSubtitle": "Saisissez ici les données de votre nouvelle commande client",
+    "pageTitle": "Nouvelle commande",
+    "productLabel": "Articles",
+    "productPlaceholder": "Sélectionner un article..."
+  },
+  "orders": {
+    "createButtonLabel": "Créer une commande",
+    "pageTitle": "Commandes",
+    "searchPlaceholder": "Rechercher une commande...",
+    "table": {
+      "createdAt": "Date de création",
+      "customer": "Client",
+      "id": "Numéro de commande",
+      "state": "Statut",
+      "updatedAt": "Dernière mise à jour"
+    }
+  },
+  "paymentType": {
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Description du moyen de paiement",
+    "generalInformations": "Informations générales",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Nom du moyen de paiement",
+    "newPageTitle": "Nouveau moyen de paiement",
+    "pageSubtitle": "Saisissez ici les informations de votre moyen de paiement"
+  },
+  "paymentTypes": {
+    "createButtonLabel": "Créer une moyen de paiement",
+    "pageTitle": "Moyens de paiement",
+    "searchPlaceholder": "Rechercher un moyen de paiement...",
+    "table": {
+      "description": "Description",
+      "name": "Nom du moyen de paiement"
+    }
+  },
+  "print": {
+    "invoice": {
+      "invoiceNumber": "Facture N°{{invoiceNumber}}",
+      "price": "Prix",
+      "productName": "Article",
+      "quantity": "Qté",
+      "taxFreeAmount": "Total HT: {{ amount }}",
+      "totalAmount": "Total TTC: {{ amount }}",
+      "vatAmount": "TVA: {{ amount }}"
+    },
+    "receipt": {
+      "price": "Prix",
+      "productName": "Article",
+      "quantity": "Qté",
+      "receiptNumber": "Ticket N°{{receiptNumber}}",
+      "totalAmount": "Total TTC: {{ amount }}"
+    }
+  },
+  "product": {
+    "amountHint": "Le prix TTC correspond au prix final qui sera payé par le client",
+    "amountLabel": "Prix TTC",
+    "amountPlaceholder": "Prix TTC de l'article",
+    "buyingAmountHint": "Le prix d'achat de l'article est le prix auquel il a été acheté au fournisseur",
+    "buyingAmountLabel": "Prix d'achat",
+    "buyingAmountPlaceholder": "Prix d'achat de l'article",
+    "categoryLabel": "Catégorie",
+    "categoryPlaceholder": "Sélectionner une catégorie",
+    "copyUpcToSku": "Copier code fabricant",
+    "customAttributes": "Attributs personnalisés",
+    "deleteImageDescription": "Êtes-vous sûr de vouloir supprimer cette image?",
+    "deleteImageTitle": "Confirmation de suppression",
+    "generalInformations": "Informations générales",
+    "generateSku": "Générer",
+    "imagesLabel": "Images",
+    "logistics": "Logistique",
+    "manufacturerLabel": "Fabricant",
+    "manufacturerPlaceholder": "Sélectionner un fabricant...",
+    "manufacturerSkuHint": "Le code fabricant est un code généralement composé des 4 premières lettres du nom du fabricant puis de l'identifiant de l'article",
+    "manufacturerSkuLabel": "Code fabricant",
+    "manufacturerSkuPlaceholder": "Code fabricant de l'article",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Nom de l'article",
+    "newPageTitle": "Nouvel article",
+    "pageSubtitle": "Saisissez ici les informations de votre article",
+    "pricing": "Facturation",
+    "ratioCheckbox": "Calculer le prix selon un coefficient",
+    "ratioHint": "Le coefficient est un facteur de multiplication permettant de calculer le prix TTC",
+    "ratioLabel": "Coefficient",
+    "ratioPlaceholder": "Coefficient de calcul du prix TTC",
+    "skuHint": "Le code barre boutique est un code barre spécifique à la boutique pour identifier l'article",
+    "skuLabel": "Code barre boutique",
+    "skuPlaceholder": "Code barre boutique de l'article",
+    "taxFreeAmountHint": "Le prix hors taxes est le prix de l'article avant l'application de la TVA",
+    "taxFreeAmountLabel": "Prix hors taxes",
+    "taxFreeAmountPlaceholder": "Prix hors taxes de l'article",
+    "upcHint": "Code barre fabricant est le code barre d'origine de l'article",
+    "upcLabel": "Code barre fabricant",
+    "upcPlaceholder": "Code barre fabricant de l'article",
+    "vatLabel": "TVA",
+    "vatPlaceholder": "Sélectionner un taux de TVA..."
+  },
+  "products": {
+    "createButtonLabel": "Créer un article",
+    "pageTitle": "Articles",
+    "searchPlaceholder": "Rechercher un article...",
+    "table": {
+      "amount": "Montant",
+      "category": "Catégorie",
+      "manufacturer": "Fabricant",
+      "manufacturerSku": "Code fabricant",
+      "name": "Nom de l'article",
+      "quantity": "Quantité",
+      "sku": "Code barre"
+    }
+  },
+  "provider": {
+    "generalInformations": "Informations générales",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Nom du fournisseur",
+    "newPageTitle": "Nouveau fournisseur",
+    "notesLabel": "Notes",
+    "notesPlaceholder": "Notes sur le fournisseur",
+    "pageSubtitle": "Saisissez ici les informations de votre fournisseur"
+  },
+  "providers": {
+    "createButtonLabel": "Créer un fournisseur",
+    "pageTitle": "Fournisseurs",
+    "searchPlaceholder": "Rechercher un fournisseur...",
+    "table": {
+      "name": "Nom du fournisseur"
+    }
+  },
+  "sale": {
+    "amount": "Montant de la vente",
+    "customer": "Client",
+    "generalInformations": "Informations générales",
+    "pageSubtitle": "Vente effectuée le {{ saleDate }}",
+    "pageTitle": "Vente {{ saleNumber }}",
+    "printInvoice": "Imprimer la facture",
+    "printReceipt": "Imprimer le ticket",
+    "products": "Articles vendus",
+    "user": "Vendeur"
+  },
+  "sales": {
+    "pageTitle": "Ventes",
+    "searchPlaceholder": "Rechercher une vente...",
+    "table": {
+      "amount": "Montant",
+      "createdAt": "Date de la vente",
+      "id": "Numéro de la vente",
+      "user": "Vendeur"
+    }
+  },
+  "settings": {
+    "formSection": "Configuration de l'imprimante",
+    "pageSizePrinterLabel": "Tille de la page",
+    "pageSizePrinterPlaceholder": "Tille de la page de l'imprimante",
+    "pageSubtitle": "Configurez votre imprimante",
+    "pageTitle": "Paramètres",
+    "printerLabel": "Imprimante",
+    "printerPlaceholder": "Votre imprimante",
+    "printError": "Erreur d'impression",
+    "printSuccess": "Impression réussie",
+    "testPrinter": "Tester votre imprimante"
+  },
+  "shipping": {
+    "cancel": "Annuler la livraison",
+    "customer": "Client",
+    "pageSubtitle": "Commande passée le {{ shippingDate }}",
+    "pageTitle": "Commande {{ shippingNumber }}",
+    "products": "Articles de la livraison",
+    "productTable": {
+      "name": "Nom de l'article",
+      "quantity": "Quantité"
+    },
+    "existingProduct": {
+      "title": "Produit déjà présent",
+      "description": "Ce produit est déjà dans votre sélection. Voulez-vous augmenter sa quantité ?"
+    },
+    "states": {
+      "cancelled": "Annulée",
+      "pending": "En attente",
+      "validated": "Validée"
+    },
+    "validate": "Valider"
+  },
+  "shippingNew": {
+    "generalInformations": "Informations générales",
+    "newProductButtonLabel": "Créer un article",
+    "pageSubtitle": "Saisissez ici les données de votre nouvelle livraison",
+    "pageTitle": "Nouvelle livraison",
+    "productLabel": "Articles",
+    "productPlaceholder": "Sélectionner un article...",
+    "providerLabel": "Fournisseur",
+    "providerPlaceholder": "Sélectionner un fournisseur..."
+  },
+  "shippings": {
+    "createButtonLabel": "Créer une livraison",
+    "pageTitle": "Livraisons",
+    "searchPlaceholder": "Rechercher une livraison...",
+    "table": {
+      "createdAt": "Date de création",
+      "id": "Numéro de livraison",
+      "provider": "Fournisseur",
+      "state": "Statut",
+      "updatedAt": "Dernière mise à jour"
+    }
+  },
+  "sidebar": {
+    "account": "Mon compte",
+    "settings": "Paramètres",
+    "stock": "Stock & Approvisionnement",
+    "store": "Ma boutique"
+  },
+  "signIn": {
+    "emailLabel": "Adresse email",
+    "emailPlaceholder": "Votre adresse email",
+    "errorToast": "Connexion impossible",
+    "invalidCredentials": "Identifiants invalides",
+    "pageTitle": "Connexion",
+    "passwordLabel": "Mot de passe",
+    "passwordPlaceholder": "Votre mot de passe",
+    "signInButton": "Me connecter",
+    "successToast": "Vous êtes bien connecté"
+  },
+  "store": {
+    "address": "Adresse",
+    "address1Label": "Adresse",
+    "address1Placeholder": "Adresse de votre boutique",
+    "address2Label": "Complément d'adresse",
+    "address2Placeholder": "Complément d'adresse de votre boutique",
+    "colorLabel": "Couleur d'accent",
+    "countryLabel": "Pays",
+    "countryPlaceholder": "Pays de votre boutique",
+    "customization": "Personnalisation",
+    "emailAddressLabel": "Adresse e-mail",
+    "emailAddressPlaceholder": "Adresse e-mail de votre boutique",
+    "generalInformations": "Informations générales",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Nom de votre boutique",
+    "pageSubtitle": "Saisissez ici les informations de votre boutique",
+    "pageTitle": "Boutique",
+    "phoneNumberLabel": "Numéro de téléphone",
+    "phoneNumberPlaceholder": "Numéro de téléphone de votre boutique",
+    "websiteUrlLabel": "Site web",
+    "websiteUrlPlaceholder": "Site web de votre boutique",
+    "zipcodeLabel": "Code postal",
+    "zipcodePlaceholder": "Code postal de votre boutique"
+  }
+}
