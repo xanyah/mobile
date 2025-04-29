@@ -4,7 +4,7 @@ import {apiClient} from '../constants/api-client';
 export const getShippings = params =>
   apiClient.get<Shipping[]>('v2/shippings', decamelizeKeys({params}));
 
-export const getShipping = (shippingId: string) =>
+export const getShipping = (shippingId?: string) =>
   apiClient.get<Shipping>(`v2/shippings/${shippingId}`);
 
 export const updateShipping = (shippingId: string, params) =>

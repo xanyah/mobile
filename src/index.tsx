@@ -2,7 +2,7 @@ import './i18n'
 import {QueryClientProvider} from '@tanstack/react-query';
 import {queryClient} from './constants/query-client';
 import {AuthProvider} from './contexts/AuthContext';
-import AppNavigator from './navigation/navigator';
+import AppNavigator from './navigation';
 
 const App = () => {
   return (
