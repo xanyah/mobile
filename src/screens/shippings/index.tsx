@@ -21,7 +21,7 @@ const Shippings = () => {
       style={{flex: 1}}
       data={data?.data}
       renderItem={({ item }) => (
-        <ShippingContainer onPress={() => navigation.navigate('MainBottomTabNavigator', {screen: 'Shippings', params: {screen: 'Shipping', params: {id: item.id}}})}>
+        <ShippingContainer onPress={() => navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'Shipping', params: {id: item.id}}})}>
           <LeftContainer>
             <Title>{head(split(item.id, '-'))} - {item.provider.name}</Title>
             <Date>{DateTime.fromISO(item.createdAt).toLocaleString(DateTime.DATETIME_MED)}</Date>

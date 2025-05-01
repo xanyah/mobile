@@ -1,10 +1,16 @@
 import { TouchableOpacityProps } from "react-native";
 import { Container, Text } from "./styled-components";
 
-type ButtonProps = TouchableOpacityProps
+type ButtonProps = TouchableOpacityProps & {
+  size?: 'md' | 'sm'
+}
 
-const Button = ({children, ...props}: ButtonProps) => (
-  <Container {...props}>
+const Button = ({
+  children,
+  size = 'md',
+  ...props
+}: ButtonProps) => (
+  <Container size={size} {...props}>
     <Text>{children}</Text>
   </Container>
 )

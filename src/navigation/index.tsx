@@ -6,7 +6,7 @@ import {Text, View} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { icons } from 'lucide-react-native';
 import Profile from '../screens/profile';
-import { Shipping, Shippings } from '../screens';
+import { InitialLoading, Shipping, Shippings } from '../screens';
 import SignIn from '../screens/signin';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -33,7 +33,7 @@ const ShippingsNavigator = createNativeStackNavigator({
 
 const MainBottomTabNavigator = createBottomTabNavigator({
   screens: {
-    Shippings: {
+    ShippingsNavigator: {
       screen: ShippingsNavigator,
       options: {
         tabBarIcon: getTabBarIcon('PackageOpen'),
@@ -59,9 +59,11 @@ const MainBottomTabNavigator = createBottomTabNavigator({
 
 const MainStackNavigator = createNativeStackNavigator({
   screens: {
+    InitialLoading,
     MainBottomTabNavigator,
     SignIn,
   },
+  initialRouteName: 'InitialLoading',
   screenOptions: {
     headerShown: false,
   }

@@ -1,24 +1,51 @@
 import { FlatList, Text } from 'react-native';
-import { MainLayout } from '../../components';
-import { LeftContainer, MainContainer, ProductTitle, RightContainer, ShippingContainer, Title } from './styled-components';
+import { Button, MainLayout, ProductScanner } from '../../components';
+import {
+  LeftContainer,
+  MainContainer,
+  ProductTitle,
+  RightContainer,
+  ShippingContainer,
+  Title,
+} from './styled-components';
 import { useShipping, useShippingProducts } from '../../hooks';
 import { StaticScreenProps } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
-import { PlusIcon } from 'lucide-react-native';
+import { Minus, Plus, PlusIcon } from 'lucide-react-native';
 import { head, split } from 'lodash';
-import { useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { createShippingProduct, updateShippingProduct } from '../../api/shippings';
 
 type Props = StaticScreenProps<{
   id: string;
 }>;
 const Shipping = ({ route }: Props) => {
   const { t } = useTranslation()
-  const { data } = useShipping(route.params.id)
+  const { id } = route.params
+  const [productScannerOpened, setProductScannerOpened] = useState(false)
+  const { data } = useShipping(id)
   const { data: productsData, refetch, isFetching } = useShippingProducts({
-    'q[shipping_id_eq]': route.params.id,
+    'q[shipping_id_eq]': id,
     'q[s]': 'product.name asc',
   })
   const canCreateProduct = useMemo(() => data?.data.state === 'pending', [data])
+
+  const { mutate: createShippingProductMutate } = useMutation({
+    mutationFn: createShippingProduct,
+    onSuccess: () => refetch(),
+  })
+
+  const { mutate: updateShippingProductMutate } = useMutation({
+    mutationFn: ({ shippingProductId, quantity }: { shippingProductId: ShippingProduct['id'], quantity: number }) =>
+      updateShippingProduct(shippingProductId, { quantity }),
+    onSuccess: () => refetch(),
+  })
+
+  const onProductSelect = useCallback((product: Product) => {
+    setProductScannerOpened(false)
+    createShippingProductMutate({ productId: product.id, shippingId: id, quantity: 1 })
+  }, [id])
 
   return (
     <MainLayout
@@ -26,7 +53,7 @@ const Shipping = ({ route }: Props) => {
       title={t('shipping.pageTitle', { shippingNumber: head(split(data?.data.id, '-')) })}
       rightIcon={PlusIcon}
       rightAction={canCreateProduct
-        ? () => console.log('add product')
+        ? () => setProductScannerOpened(true)
         : undefined}
     >
       <MainContainer>
@@ -42,7 +69,24 @@ const Shipping = ({ route }: Props) => {
                 <ProductTitle>{item.product.name}</ProductTitle>
               </LeftContainer>
               <RightContainer>
+                <Button
+                  onPress={() => updateShippingProductMutate({
+                    shippingProductId: item.id,
+                    quantity: item.quantity - 1
+                  })}
+                >
+                  <Minus />
+                </Button>
                 <Text>{item.quantity}</Text>
+
+                <Button
+                  onPress={() => updateShippingProductMutate({
+                    shippingProductId: item.id,
+                    quantity: item.quantity + 1
+                  })}
+                >
+                  <Plus />
+                </Button>
               </RightContainer>
             </ShippingContainer>
           )}
@@ -51,6 +95,11 @@ const Shipping = ({ route }: Props) => {
           keyExtractor={item => item.id}
         />
       </MainContainer>
+      <ProductScanner
+        onClose={() => setProductScannerOpened(false)}
+        onProductSelect={onProductSelect}
+        isOpen={productScannerOpened}
+      />
     </MainLayout>
   );
 };

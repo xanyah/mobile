@@ -9,15 +9,7 @@ import {signIn} from '../../api/auth';
 import SecureStorage from 'react-native-fast-secure-storage';
 import {Container} from './styled-components';
 import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAuth} from '../../contexts/AuthContext';
-
-type RootStackParamList = {
-  Signin: undefined;
-  MainApp: undefined;
-};
-
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const signinSchema = z.object({
   username: z.string().email(),
@@ -25,7 +17,7 @@ const signinSchema = z.object({
 });
 
 const SignIn = () => {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation();
 
   const {refetchUser} = useAuth();
 
@@ -46,6 +38,7 @@ const SignIn = () => {
       );
 
       await refetchUser();
+      navigation.reset({key: '0', 'routes': [{name: 'MainBottomTabNavigator'}]})
     },
   });
 
@@ -63,10 +56,12 @@ const SignIn = () => {
             label="Email"
             errors={error ? ([error.message] as string[]) : undefined}
             placeholder="Email"
+            autoFocus
             autoCapitalize="none"
             autoComplete="email"
             autoCorrect={false}
             keyboardType="email-address"
+            returnKeyType="next"
             value={field.value}
             onChangeText={field.onChange}
             onSubmitEditing={() => passwordInputRef.current?.focus()}
@@ -83,6 +78,7 @@ const SignIn = () => {
             errors={error ? ([error.message] as string[]) : undefined}
             secureTextEntry
             placeholder="Password"
+            returnKeyType='go'
             value={field.value}
             onChangeText={field.onChange}
             onSubmitEditing={onSubmit}
