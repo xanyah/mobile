@@ -1,10 +1,17 @@
 import styled from "styled-components/native";
 
-export const ShippingContainer = styled.TouchableOpacity`
+export const MainContainer = styled.View`
+  padding: 20px;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+`
+
+export const ShippingContainer = styled.View`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px;
+  padding: 8px 0;
 `
 
 export const LeftContainer = styled.View`
@@ -24,24 +31,11 @@ export const Title = styled.Text`
   font-weight: 600;
 `
 
+export const ProductTitle = styled.Text`
+  font-size: 16px;
+  font-weight: 500;
+`
+
 export const Date = styled.Text`
   color: #555;
-`
-
-export const ShippingIdContainer = styled.View`
-  padding: 2px 4px;
-  border-radius: 4px;
-  background: #e2e8f0;
-`
-
-export const ShippingIdContent = styled.Text`
-  color: #475569;
-  font-size: 12px;
-`
-
-
-export const ShippingNameContainer = styled.View`
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
 `

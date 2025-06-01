@@ -1,6 +1,6 @@
 import { Modal, StyleSheet, Text } from "react-native"
 import TextInput from "../text-input"
-import { Camera, useCameraDevice, useCameraPermission, useCodeScanner } from "react-native-vision-camera"
+import { Camera, CodeScanner, useCameraDevice, useCameraPermission, useCodeScanner } from "react-native-vision-camera"
 import { useCallback, useEffect, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { z } from "zod"
@@ -10,6 +10,8 @@ import { head, isEmpty, map } from "lodash"
 import Button from "../button"
 import { Plus, Search } from "lucide-react-native"
 import { getProducts } from "../../api/products"
+import ProductForm from "../product-form"
+import BarcodeScanner from "../barcode-scanner"
 
 const barcodeSchema = z.object({
   value: z.string(),
@@ -22,31 +24,33 @@ type ProductScannerProps = {
 }
 
 const ProductScanner = ({ onProductSelect, isOpen, onClose }: ProductScannerProps) => {
-  const device = useCameraDevice('back')
   const [products, setProducts] = useState<Product[]>()
   const { hasPermission, requestPermission } = useCameraPermission()
-  const { control, setValue, getValues, reset } = useForm({
-    resolver: zodResolver(barcodeSchema),
-  })
-  const codeScanner = useCodeScanner({
-    codeTypes: ['code-128', 'ean-13', 'ean-8', 'upc-a', 'upc-e'],
-    onCodeScanned: (codes) => {
-      const scannedCode = head(codes)?.value
+  const [isScanning, setIsScanning] = useState(true)
+  const [isCreating, setIsCreating] = useState(false)
 
-      if (scannedCode) {
-        setValue('value', scannedCode)
-        onSearch()
-      }
-    }
-  })
-
-  const onSearch = useCallback(async () => {
+  const onSearch = useCallback(async (scannedCode: string) => {
     const productsQuery = await getProducts({
-      'q[skuOrUpcOrManufacturerSkuEq]': getValues().value,
+      'q[skuOrUpcOrManufacturerSkuEq]': scannedCode,
     })
 
-    setProducts(productsQuery.data)
-  }, [setProducts, getValues])
+    if (productsQuery.data.length === 1) {
+      onProductSelect?.(productsQuery.data[0])
+    } else if (productsQuery.data.length > 1) {
+      setProducts(productsQuery.data)
+    } else {
+      setIsCreating(true)
+    }
+    setIsScanning(false)
+  }, [setProducts, setIsCreating, onProductSelect])
+
+  const onScan = useCallback<CodeScanner['onCodeScanned']>((codes) => {
+    const scannedCode = head(codes)?.value
+
+    if (scannedCode) {
+      onSearch(scannedCode)
+    }
+  }, [onSearch])
 
   useEffect(() => {
     if (!hasPermission) {
@@ -55,53 +59,25 @@ const ProductScanner = ({ onProductSelect, isOpen, onClose }: ProductScannerProp
   }, [hasPermission, requestPermission])
 
   useEffect(() => {
-    if (!isOpen) {
-      reset({ value: '' })
+    if (isOpen) {
+      setIsScanning(true)
+      setProducts([])
+    } else {
+      setIsCreating(false)
       setProducts([])
     }
-  }, [reset, setProducts, isOpen])
+  }, [setProducts, isOpen])
 
-  return (<Modal
-    presentationStyle="formSheet"
-    visible={isOpen}
-    animationType="slide"
-    onRequestClose={onClose}
-  >
-    <CameraContainer>
-      {device && <Camera
-        style={StyleSheet.absoluteFill}
-        device={device}
-        isActive={true}
-        codeScanner={codeScanner}
-      />}
-      <CameraOverlayTopContainer />
-      <CameraOverlayLeftContainer />
-      <CameraOverlayRightContainer />
-      <CameraOverlayBottomContainer />
-    </CameraContainer>
-    <ProductFormContainer>
-      <ProductBarcodeFormContainer>
-        <ProductBarcodeInputContainer>
-          <Controller
-            control={control}
-            name="value"
-            render={({ field, fieldState: { error } }) => (
-              <TextInput
-                label="Code barre du produit"
-                errors={error ? ([error.message] as string[]) : undefined}
-                placeholder="Code barre du produit"
-                autoCapitalize="none"
-                autoComplete="off"
-                autoCorrect={false}
-                keyboardType="number-pad"
-                value={field.value}
-                onChangeText={field.onChange}
-              />
-            )}
-          />
-        </ProductBarcodeInputContainer>
-        <Button onPress={onSearch}><Search color="#fff" size={17} /></Button>
-      </ProductBarcodeFormContainer>
+
+  return (<>
+    <BarcodeScanner onScan={onScan} isOpen={isOpen && isScanning} />
+    <Modal
+      presentationStyle="formSheet"
+      visible={isOpen && !isScanning}
+      animationType="slide"
+      onRequestClose={onClose}
+    >
+      {isCreating && <ProductForm onSuccess={data => onProductSelect?.(data.data)} />}
       {map(products, product => (
         <ProductContainer key={product.id}>
           <ProductInfosContainer>
@@ -117,8 +93,8 @@ const ProductScanner = ({ onProductSelect, isOpen, onClose }: ProductScannerProp
           </Button>
         </ProductContainer>
       ))}
-    </ProductFormContainer>
-  </Modal>)
+    </Modal>
+  </>)
 }
 
 export default ProductScanner

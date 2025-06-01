@@ -12,6 +12,10 @@ export const Label = styled.Text`
   font-weight: 500;
 `
 
+export const Hint = styled.Text`
+  font-size: 12px;
+`
+
 export const TextInput = styled.TextInput`
   border: 1px solid hsl(0 0% 89.8%);
   border-radius: 6px;

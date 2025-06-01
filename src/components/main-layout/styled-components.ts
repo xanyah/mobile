@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const MainContainer = styled.View`
-  background: #f9fafb;
+  background: #6d28d9;
   flex: 1;
 `
 
@@ -27,16 +27,17 @@ export const HeaderTitleContainer = styled.View`
 
 export const HeaderTitle = styled.Text`
   text-align: center;
-  color: #0a0a0a;
+  color: #fff;
   font-size: 20px;
   font-weight: 500;
 `
 
 export const MainContentContainer = styled.View`
   background: #fff;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #6b21a8;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
+  border-bottom-width: 0;
   margin-horizontal: 4px;
   flex: 1;
 `

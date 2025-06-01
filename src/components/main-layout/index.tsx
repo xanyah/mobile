@@ -21,7 +21,7 @@ const MainLayout = ({ title, canGoBack, children, rightIcon: RightIcon, rightAct
             <HeaderIconContainer>
               {canGoBack && (
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                  <ArrowLeft color="#737373" />
+                  <ArrowLeft color="#fff" />
                 </TouchableOpacity>
               )}
             </HeaderIconContainer>
@@ -31,7 +31,7 @@ const MainLayout = ({ title, canGoBack, children, rightIcon: RightIcon, rightAct
             <HeaderIconContainer>
               {rightAction && RightIcon && (
                 <TouchableOpacity onPress={rightAction}>
-                  <RightIcon color="#737373" />
+                  <RightIcon color="#fff" />
                 </TouchableOpacity>
               )}
             </HeaderIconContainer>

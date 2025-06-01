@@ -1,35 +1,29 @@
-import { decamelizeKeys } from 'humps';
-import { apiClient } from '../constants/api-client';
+import { decamelizeKeys } from 'humps'
+import { apiClient } from '../constants/api-client'
 
-export const getShippings = (params: any) =>
-  apiClient.get<Shipping[]>('v2/shippings', decamelizeKeys({ params }));
+export const getShippings = params =>
+  apiClient.get<Shipping[]>('v2/shippings', decamelizeKeys({ params }))
 
-export const getShipping = (shippingId?: string) =>
-  apiClient.get<Shipping>(`v2/shippings/${shippingId}`);
+export const getShipping = shippingId =>
+  apiClient.get<Shipping>(`v2/shippings/${shippingId}`)
 
-export const updateShipping = (shippingId: string, params: any) =>
-  apiClient.patch<Shipping>(
-    `v2/shippings/${shippingId}`,
-    decamelizeKeys(params),
-  );
+export const updateShipping = (shippingId, params) =>
+  apiClient.patch<Shipping>(`v2/shippings/${shippingId}`, decamelizeKeys(params))
 
-export const validateShipping = (shippingId: string) =>
-  apiClient.patch<Shipping>(`v2/shippings/${shippingId}/validate`);
+export const validateShipping = shippingId =>
+  apiClient.patch<Shipping>(`v2/shippings/${shippingId}/validate`)
 
-export const cancelShipping = (shippingId: string) =>
-  apiClient.patch<Shipping>(`v2/shippings/${shippingId}/cancel`);
+export const cancelShipping = shippingId =>
+  apiClient.patch<Shipping>(`v2/shippings/${shippingId}/cancel`)
 
-export const createShipping = (newShipping: string) =>
-  apiClient.post<Shipping>('v2/shippings', decamelizeKeys(newShipping));
+export const createShipping = newShipping =>
+  apiClient.post<Shipping>('v2/shippings', decamelizeKeys(newShipping))
 
-export const getShippingProducts = (params: any) =>
-  apiClient.get<ShippingProduct[]>(
-    'v2/shipping_products',
-    decamelizeKeys({ params }),
-  );
+export const getShippingProducts = params =>
+  apiClient.get<ShippingProduct[]>('v2/shipping_products', decamelizeKeys({ params }))
 
-export const getShippingProduct = (id: string) =>
-  apiClient.get<ShippingProduct>(`v2/shipping_products/${id}`);
+export const getShippingProduct = id =>
+  apiClient.get<ShippingProduct>(`v2/shipping_products/${id}`)
 
 export const createShippingProduct = (params: { shippingId: Shipping['id'], productId: Product['id'], quantity: number }) =>
   apiClient.post<ShippingProduct>('v2/shipping_products', decamelizeKeys(params));

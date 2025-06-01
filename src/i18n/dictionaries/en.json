@@ -341,7 +341,7 @@
   },
   "shipping": {
     "cancel": "Cancel delivery",
-    "customer": "Customer",
+    "provider": "Provider",
     "pageSubtitle": "Order placed on {{ shippingDate }}",
     "pageTitle": "Order {{ shippingNumber }}",
     "products": "Delivery items",

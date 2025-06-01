@@ -11,7 +11,7 @@ import {
 import { useShipping, useShippingProducts } from '../../hooks';
 import { StaticScreenProps } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
-import { Minus, Plus, PlusIcon } from 'lucide-react-native';
+import { Minus, Plus, PlusIcon, ScanBarcode } from 'lucide-react-native';
 import { head, split } from 'lodash';
 import { useCallback, useMemo, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
@@ -20,6 +20,7 @@ import { createShippingProduct, updateShippingProduct } from '../../api/shipping
 type Props = StaticScreenProps<{
   id: string;
 }>;
+
 const Shipping = ({ route }: Props) => {
   const { t } = useTranslation()
   const { id } = route.params
@@ -51,13 +52,13 @@ const Shipping = ({ route }: Props) => {
     <MainLayout
       canGoBack
       title={t('shipping.pageTitle', { shippingNumber: head(split(data?.data.id, '-')) })}
-      rightIcon={PlusIcon}
+      rightIcon={ScanBarcode}
       rightAction={canCreateProduct
         ? () => setProductScannerOpened(true)
         : undefined}
     >
       <MainContainer>
-        <Title>{t('shipping.customer')}</Title>
+        <Title>{t('shipping.provider')}</Title>
         <Text>{data?.data.provider.name}</Text>
         <Title>{t('shipping.products')}</Title>
         <FlatList
@@ -74,8 +75,9 @@ const Shipping = ({ route }: Props) => {
                     shippingProductId: item.id,
                     quantity: item.quantity - 1
                   })}
+                  size="sm"
                 >
-                  <Minus />
+                  <Minus color="#fff" />
                 </Button>
                 <Text>{item.quantity}</Text>
 
@@ -84,8 +86,9 @@ const Shipping = ({ route }: Props) => {
                     shippingProductId: item.id,
                     quantity: item.quantity + 1
                   })}
+                  size="sm"
                 >
-                  <Plus />
+                  <Plus color="#fff" />
                 </Button>
               </RightContainer>
             </ShippingContainer>

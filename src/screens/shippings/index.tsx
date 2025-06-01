@@ -1,12 +1,13 @@
 import { FlatList, SafeAreaView } from 'react-native';
 import { MainLayout, ShippingState } from '../../components';
-import { Date, LeftContainer, RightContainer, ShippingContainer, Title } from './styled-components';
+import { Date, LeftContainer, RightContainer, ShippingContainer, ShippingIdContainer, ShippingIdContent, ShippingNameContainer, Title } from './styled-components';
 import { useShippings } from '../../hooks';
-import { ArrowRight } from 'lucide-react-native';
+import { ArrowRight, PlusIcon } from 'lucide-react-native';
 import { head, split } from 'lodash';
 import { DateTime } from 'luxon';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import { useCallback } from 'react';
 
 const Shippings = () => {
   const {t} = useTranslation()
@@ -15,15 +16,33 @@ const Shippings = () => {
     'q[s]': 'created_at desc',
   })
 
+  const openShipping = useCallback((shippingId?: Shipping['id']) => {
+    if (shippingId) {
+    navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'Shipping', params: {id: shippingId}}})
+    } else {
+    navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'ShippingNew'}})
+    }
+  },[ navigation])
+
   return (
-    <MainLayout title={t('shippings.pageTitle')}>
+    <MainLayout
+    title={t('shippings.pageTitle')}
+    rightIcon={PlusIcon}
+      rightAction={() => openShipping()}>
     <FlatList
       style={{flex: 1}}
       data={data?.data}
       renderItem={({ item }) => (
-        <ShippingContainer onPress={() => navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'Shipping', params: {id: item.id}}})}>
+        <ShippingContainer onPress={() => openShipping(item.id)}>
           <LeftContainer>
-            <Title>{head(split(item.id, '-'))} - {item.provider.name}</Title>
+            <ShippingNameContainer>
+            <Title>{item.provider.name}</Title>
+            <ShippingIdContainer>
+              <ShippingIdContent>
+              {head(split(item.id, '-'))}
+              </ShippingIdContent>
+            </ShippingIdContainer>
+            </ShippingNameContainer>
             <Date>{DateTime.fromISO(item.createdAt).toLocaleString(DateTime.DATETIME_MED)}</Date>
           </LeftContainer>
           <RightContainer>

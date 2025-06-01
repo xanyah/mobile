@@ -6,7 +6,7 @@ import {Text, View} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { icons } from 'lucide-react-native';
 import Profile from '../screens/profile';
-import { InitialLoading, Shipping, Shippings } from '../screens';
+import { InitialLoading, Shipping, ShippingNew, Shippings } from '../screens';
 import SignIn from '../screens/signin';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -25,6 +25,7 @@ const ShippingsNavigator = createNativeStackNavigator({
   screens: {
     Shippings,
     Shipping,
+    ShippingNew,
   },
   screenOptions: {
     headerShown: false,
