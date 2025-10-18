@@ -1,46 +1,46 @@
-import { useTranslation } from 'react-i18next'
-import { Controller, useFormContext } from 'react-hook-form'
-import { formSchemaType } from './config'
-import { useCallback, useState } from 'react'
-import { useCurrentStore } from '../../hooks/stores'
-import { getNextProductSku } from '../../api'
-import FormSection from '../form-section'
-import TextInput from '../text-input'
-import Button from '../button'
-import { View } from 'react-native'
-import BarcodeScanner from '../barcode-scanner'
-import { CodeScanner } from 'react-native-vision-camera'
-import { head } from 'lodash'
-import { SkuButtonsContainer, TextInputButtonContainer } from './styled-components'
-import { Barcode, Copy, RefreshCcw } from 'lucide-react-native'
+import { useTranslation } from 'react-i18next';
+import { Controller, useFormContext } from 'react-hook-form';
+import { formSchemaType } from './config';
+import { useCallback, useState } from 'react';
+import { useCurrentStore } from '../../hooks/stores';
+import { getNextProductSku } from '../../api';
+import FormSection from '../form-section';
+import TextInput from '../text-input';
+import Button from '../button';
+import { View } from 'react-native';
+import BarcodeScanner from '../barcode-scanner';
+import { CodeScanner } from 'react-native-vision-camera';
+import { head } from 'lodash';
+import { SkuButtonsContainer, TextInputButtonContainer } from './styled-components';
+import { Barcode, Copy, RefreshCcw } from 'lucide-react-native';
 
 const ProductFormLogistics = () => {
-  const store = useCurrentStore()
-  const { t } = useTranslation()
-  const { control, setValue, watch } = useFormContext<formSchemaType>()
-  const [scannedField, setScannedField] = useState<keyof formSchemaType>()
+  const store = useCurrentStore();
+  const { t } = useTranslation();
+  const { control, setValue, watch } = useFormContext<formSchemaType>();
+  const [scannedField, setScannedField] = useState<keyof formSchemaType>();
 
   const copyUpc = useCallback(() => {
-    setValue('sku', watch('upc'))
-  }, [setValue, watch])
+    setValue('sku', watch('upc'));
+  }, [setValue, watch]);
 
   const generateSku = useCallback(async () => {
     try {
-      const { data } = await getNextProductSku({ storeId: store?.id })
-      setValue('sku', data.nextSku.toString())
+      const { data } = await getNextProductSku({ storeId: store?.id });
+      setValue('sku', data.nextSku.toString());
     }
     catch (err) {
       // captureException(err)
     }
-  }, [store, setValue])
+  }, [store, setValue]);
 
   const onScan = useCallback<CodeScanner['onCodeScanned']>((codes) => {
-    const scannedCode = head(codes)?.value
+    const scannedCode = head(codes)?.value;
     if (scannedField && scannedCode) {
-      setValue(scannedField, scannedCode)
+      setValue(scannedField, scannedCode);
     }
-    setScannedField(undefined)
-  }, [setValue, scannedField, setScannedField])
+    setScannedField(undefined);
+  }, [setValue, scannedField, setScannedField]);
 
   return (
     <FormSection title={t('product.logistics')}>
@@ -119,7 +119,7 @@ const ProductFormLogistics = () => {
         </SkuButtonsContainer>
       </View>
     </FormSection>
-  )
-}
+  );
+};
 
-export default ProductFormLogistics
+export default ProductFormLogistics;

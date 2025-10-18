@@ -1,7 +1,7 @@
-import { useCurrentStore, useProvider } from '../../hooks'
-import { useCallback } from 'react'
-import { getProviders } from '../../api'
-import ApiDataSelect from '../api-data-select'
+import { useCurrentStore, useProvider } from '../../hooks';
+import { useCallback } from 'react';
+import { getProviders } from '../../api';
+import ApiDataSelect from '../api-data-select';
 
 interface ProviderSelectProps {
   onChange: (newValue?: Provider['id']) => void
@@ -11,15 +11,15 @@ interface ProviderSelectProps {
 }
 
 const ProviderSelect = ({ onChange, value, label, placeholder }: ProviderSelectProps) => {
-  const store = useCurrentStore()
+  const store = useCurrentStore();
 
   const getFilteredRecords = useCallback((searchQuery) => {
     return getProviders({
       'q[storeIdEq]': store?.id,
       'q[nameOrNotesCont]': searchQuery,
       'q[s]': 'name',
-    })
-  }, [store])
+    });
+  }, [store]);
 
   return (
     <ApiDataSelect
@@ -33,7 +33,7 @@ const ProviderSelect = ({ onChange, value, label, placeholder }: ProviderSelectP
       getRecordLabel={(record: Provider) => record.name}
       getFilteredRecords={getFilteredRecords}
     />
-  )
-}
+  );
+};
 
-export default ProviderSelect
+export default ProviderSelect;

@@ -1,8 +1,8 @@
-import { useCallback } from 'react'
-import ApiDataSelect from '../api-data-select'
-import { getManufacturers } from '../../api/manufacturers'
-import { useManufacturer } from '../../hooks/manufacturers'
-import { useCurrentStore } from '../../hooks/stores'
+import { useCallback } from 'react';
+import ApiDataSelect from '../api-data-select';
+import { getManufacturers } from '../../api/manufacturers';
+import { useManufacturer } from '../../hooks/manufacturers';
+import { useCurrentStore } from '../../hooks/stores';
 
 interface ManufacturerSelectProps {
   onChange: (newValue?: Manufacturer['id']) => void
@@ -19,7 +19,7 @@ const ManufacturerSelect = ({
   error,
   placeholder,
 }: ManufacturerSelectProps) => {
-  const store = useCurrentStore()
+  const store = useCurrentStore();
 
   const getFilteredRecords = useCallback(
     (searchQuery: string) => {
@@ -27,10 +27,10 @@ const ManufacturerSelect = ({
         'q[storeIdEq]': store?.id,
         'q[nameOrNotesCont]': searchQuery,
         'q[s]': 'name',
-      })
+      });
     },
     [store],
-  )
+  );
 
   return (
     <ApiDataSelect
@@ -45,7 +45,7 @@ const ManufacturerSelect = ({
       getRecordLabel={(record: Manufacturer) => record.name}
       getFilteredRecords={getFilteredRecords}
     />
-  )
-}
+  );
+};
 
-export default ManufacturerSelect
+export default ManufacturerSelect;

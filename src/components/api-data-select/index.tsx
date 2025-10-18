@@ -1,12 +1,11 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { map } from 'lodash'
-import { UseQueryResult } from '@tanstack/react-query'
-import { AxiosResponse } from 'axios'
-import Button from '../button'
-import { Modal, Text, TouchableOpacity } from 'react-native'
-import TextInput from '../text-input'
-import { Error, ErrorsContainer, Label, MainContainer, ResultContainer, ResultsContainer, SelectedContainer, SelectedMainContainer } from './styled-components'
-import { ChevronDown } from 'lucide-react-native'
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { map } from 'lodash';
+import { UseQueryResult } from '@tanstack/react-query';
+import { AxiosResponse } from 'axios';
+import { Modal, Text } from 'react-native';
+import TextInput from '../text-input';
+import { Error, ErrorsContainer, Label, MainContainer, ResultContainer, ResultsContainer, SelectedContainer, SelectedMainContainer } from './styled-components';
+import { ChevronDown } from 'lucide-react-native';
 
 interface ApiDataSelectProps {
   onChange: (newValue?: string) => void
@@ -31,45 +30,45 @@ const ApiDataSelect = ({
   error,
   placeholder,
 }: ApiDataSelectProps) => {
-  const [isOpened, setIsOpened] = useState(false)
-  const { data } = useRecordHook(value)
-  const [options, setOptions] = useState<{ label: string, value: any }[]>([])
+  const [isOpened, setIsOpened] = useState(false);
+  const { data } = useRecordHook(value);
+  const [options, setOptions] = useState<{ label: string, value: any }[]>([]);
 
   const formatRecord = useCallback(
     (record: unknown) => {
       return {
         value: getRecordValue(record),
         label: getRecordLabel(record),
-      }
+      };
     },
     [getRecordLabel, getRecordValue],
-  )
+  );
 
   const selectValue = useMemo(() => {
     if (data?.data) {
-      return formatRecord(data.data)
+      return formatRecord(data.data);
     }
-    return null
-  }, [data, formatRecord])
+    return null;
+  }, [data, formatRecord]);
 
   const loadOptions = useCallback(
     async (inputValue: string) => {
-      const { data } = await getFilteredRecords(inputValue)
-      setOptions(map(data, formatRecord))
+      const { data } = await getFilteredRecords(inputValue);
+      setOptions(map(data, formatRecord));
     },
     [getFilteredRecords, formatRecord],
-  )
+  );
 
   const onResultPress = useCallback((result: any) => {
-    onChange(result)
-    setIsOpened(false)
-  }, [onChange, setIsOpened])
+    onChange(result);
+    setIsOpened(false);
+  }, [onChange, setIsOpened]);
 
   useEffect(() => {
     if (isOpened) {
-      loadOptions('')
+      loadOptions('');
     }
-  }, [isOpened])
+  }, [isOpened, loadOptions]);
 
   return (<>
     <SelectedMainContainer>
@@ -113,7 +112,7 @@ const ApiDataSelect = ({
         </ResultsContainer>
       </MainContainer>
     </Modal>
-  </>)
-}
+  </>);
+};
 
-export default ApiDataSelect
+export default ApiDataSelect;

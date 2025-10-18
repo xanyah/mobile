@@ -1,7 +1,7 @@
-import { useCurrentStore, useVatRate } from '../../hooks'
-import { useCallback } from 'react'
-import { getVatRates } from '../../api'
-import ApiDataSelect from '../api-data-select'
+import { useCurrentStore, useVatRate } from '../../hooks';
+import { useCallback } from 'react';
+import { getVatRates } from '../../api';
+import ApiDataSelect from '../api-data-select';
 
 interface VatRateSelectProps {
   onChange: (newValue?: VatRate['id']) => void
@@ -18,7 +18,7 @@ const VatRateSelect = ({
   label,
   error,
 }: VatRateSelectProps) => {
-  const store = useCurrentStore()
+  const store = useCurrentStore();
 
   const getFilteredRecords = useCallback(
     (searchQuery) => {
@@ -26,10 +26,10 @@ const VatRateSelect = ({
         'q[storeIdEq]': store?.id,
         'q[countryNameCont]': searchQuery,
         'q[s]': 'rate_percent_cents',
-      })
+      });
     },
     [store],
-  )
+  );
 
   return (
     <ApiDataSelect
@@ -44,7 +44,7 @@ const VatRateSelect = ({
       getRecordLabel={(record: VatRate) => `${record.country.name} - ${record.ratePercentCents / 100}%`}
       getFilteredRecords={getFilteredRecords}
     />
-  )
-}
+  );
+};
 
-export default VatRateSelect
+export default VatRateSelect;

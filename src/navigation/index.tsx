@@ -10,7 +10,7 @@ import { InitialLoading, Shipping, ShippingNew, Shippings } from '../screens';
 import SignIn from '../screens/signin';
 import { useAuth } from '../contexts/AuthContext';
 
-const getTabBarIcon = (iconName: keyof typeof icons) => (({ focused, color, size }: {
+const getTabBarIcon = (iconName: keyof typeof icons) => (({ color }: {
   focused: boolean;
   color: string;
   size: number;
@@ -18,8 +18,8 @@ const getTabBarIcon = (iconName: keyof typeof icons) => (({ focused, color, size
 const LucideIcon = icons[iconName];
  return (
   <LucideIcon color={color} size={20} />
-)
-})
+);
+});
 
 const ShippingsNavigator = createNativeStackNavigator({
   screens: {
@@ -29,8 +29,8 @@ const ShippingsNavigator = createNativeStackNavigator({
   },
   screenOptions: {
     headerShown: false,
-  }
-})
+  },
+});
 
 const MainBottomTabNavigator = createBottomTabNavigator({
   screens: {
@@ -38,24 +38,26 @@ const MainBottomTabNavigator = createBottomTabNavigator({
       screen: ShippingsNavigator,
       options: {
         tabBarIcon: getTabBarIcon('PackageOpen'),
+        title: 'Livraisons',
       },
     },
-    Inventories: {
-      screen: Profile,
-      options: {
-        tabBarIcon: getTabBarIcon('ScanBarcode'),
-      },
-    },
+    // Inventories: {
+    //   screen: Profile,
+    //   options: {
+    //     tabBarIcon: getTabBarIcon('ScanBarcode'),
+
+    //   },
+    // },
     Profile: {
       screen: Profile,
       options: {
-        tabBarIcon: getTabBarIcon('User')
-      }
+        tabBarIcon: getTabBarIcon('User'),
+      },
     },
   },
   screenOptions: {
     headerShown: false,
-  }
+  },
 });
 
 const MainStackNavigator = createNativeStackNavigator({
@@ -67,7 +69,7 @@ const MainStackNavigator = createNativeStackNavigator({
   initialRouteName: 'InitialLoading',
   screenOptions: {
     headerShown: false,
-  }
+  },
 });
 
 const Navigator = createStaticNavigation(MainStackNavigator);

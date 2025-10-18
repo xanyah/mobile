@@ -1,5 +1,5 @@
-import fr from '../i18n/dictionaries/fr.json'
-import zodFr from 'zod-i18n-map/locales/fr/zod.json'
+import fr from '../i18n/dictionaries/fr.json';
+import zodFr from 'zod-i18n-map/locales/fr/zod.json';
 
 declare module 'i18next' {
   interface CustomTypeOptions {

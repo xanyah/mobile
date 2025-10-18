@@ -1,17 +1,17 @@
-import { useEffect } from "react"
-import { validateToken } from "../../api/auth"
-import { useNavigation } from "@react-navigation/native"
+import { useEffect } from 'react';
+import { getCurrentUser } from '../../api/auth';
+import { useNavigation } from '@react-navigation/native';
 
 const InitialLoading = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   useEffect(() => {
-    validateToken()
-      .then(() => navigation.reset({key: '0', 'routes': [{name: 'MainBottomTabNavigator'}]}))
-      .catch(() => navigation.reset({key: '0', 'routes': [{name: 'SignIn'}]}))
-  }, [])
+    getCurrentUser()
+      .then(() => navigation.reset({ key: '0', 'routes': [{ name: 'MainBottomTabNavigator' }] }))
+      .catch(() => navigation.reset({ key: '0', 'routes': [{ name: 'SignIn' }] }));
+  }, [navigation]);
 
-  return null
-}
+  return null;
+};
 
-export default InitialLoading
+export default InitialLoading;

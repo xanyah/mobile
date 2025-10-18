@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 export const Container = styled.TouchableOpacity<{ size: 'md' | 'sm' }>`
   background: #7e22ce;
@@ -8,11 +8,11 @@ export const Container = styled.TouchableOpacity<{ size: 'md' | 'sm' }>`
   flex-direction: row;
   gap: 4px;
   padding: ${props => props.size === 'md' ? '8px 16px' : '4px 8px'};
-`
+`;
 
 export const Text = styled.Text`
   align-items: center;
   gap: 16px;
   color: #fff;
   font-weight: 600;
-`
+`;

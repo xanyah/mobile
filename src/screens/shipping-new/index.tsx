@@ -12,17 +12,17 @@ import { createShipping } from '../../api/shippings';
 import ProviderSelect from '../../components/provider-select';
 
 const Shipping = () => {
-  const { t } = useTranslation()
-  const navigation = useNavigation()
-  const [providerId, setProviderId] = useState<string>()
-  const store = useCurrentStore()
+  const { t } = useTranslation();
+  const navigation = useNavigation();
+  const [providerId, setProviderId] = useState<string>();
+  const store = useCurrentStore();
 
   const { mutate: createShippingMutate } = useMutation({
     mutationFn: () => createShipping({ providerId, storeId: store?.id }),
     onSuccess: (data) => {
-      navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'Shipping', params: {id: data.data.id}}})
+      navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'Shipping', params: {id: data.data.id}}});
     },
-  })
+  });
 
   return (
     <MainLayout

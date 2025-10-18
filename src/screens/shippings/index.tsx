@@ -1,4 +1,4 @@
-import { FlatList, SafeAreaView } from 'react-native';
+import { FlatList } from 'react-native';
 import { MainLayout, ShippingState } from '../../components';
 import { Date, LeftContainer, RightContainer, ShippingContainer, ShippingIdContainer, ShippingIdContent, ShippingNameContainer, Title } from './styled-components';
 import { useShippings } from '../../hooks';
@@ -10,19 +10,19 @@ import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
 
 const Shippings = () => {
-  const {t} = useTranslation()
-  const navigation = useNavigation()
+  const {t} = useTranslation();
+  const navigation = useNavigation();
   const { data, refetch, isFetching } = useShippings({
     'q[s]': 'created_at desc',
-  })
+  });
 
   const openShipping = useCallback((shippingId?: Shipping['id']) => {
     if (shippingId) {
-    navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'Shipping', params: {id: shippingId}}})
+    navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'Shipping', params: {id: shippingId}}});
     } else {
-    navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'ShippingNew'}})
+    navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'ShippingNew'}});
     }
-  },[ navigation])
+  },[ navigation]);
 
   return (
     <MainLayout

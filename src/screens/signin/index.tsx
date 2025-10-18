@@ -38,7 +38,7 @@ const SignIn = () => {
       );
 
       await refetchUser();
-      navigation.reset({key: '0', 'routes': [{name: 'MainBottomTabNavigator'}]})
+      navigation.reset({key: '0', 'routes': [{name: 'MainBottomTabNavigator'}]});
     },
   });
 
@@ -78,7 +78,7 @@ const SignIn = () => {
             errors={error ? ([error.message] as string[]) : undefined}
             secureTextEntry
             placeholder="Password"
-            returnKeyType='go'
+            returnKeyType="go"
             value={field.value}
             onChangeText={field.onChange}
             onSubmitEditing={onSubmit}

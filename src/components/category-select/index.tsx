@@ -1,7 +1,7 @@
-import { useCurrentStore, useCategory } from '../../hooks'
-import { useCallback } from 'react'
-import { getCategories } from '../../api'
-import ApiDataSelect from '../api-data-select'
+import { useCurrentStore, useCategory } from '../../hooks';
+import { useCallback } from 'react';
+import { getCategories } from '../../api';
+import ApiDataSelect from '../api-data-select';
 
 interface CategorySelectProps {
   onChange: (newValue?: Category['id']) => void
@@ -18,7 +18,7 @@ const CategorySelect = ({
   label,
   error,
 }: CategorySelectProps) => {
-  const store = useCurrentStore()
+  const store = useCurrentStore();
 
   const getFilteredRecords = useCallback(
     (searchQuery) => {
@@ -26,10 +26,10 @@ const CategorySelect = ({
         'q[storeIdEq]': store?.id,
         'q[nameCont]': searchQuery,
         'q[s]': 'name',
-      })
+      });
     },
     [store],
-  )
+  );
 
   return (
     <ApiDataSelect
@@ -44,7 +44,7 @@ const CategorySelect = ({
       getRecordLabel={(record: Category) => record.name}
       getFilteredRecords={getFilteredRecords}
     />
-  )
-}
+  );
+};
 
-export default CategorySelect
+export default CategorySelect;

@@ -1,8 +1,8 @@
-import * as i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
-import locale from 'react-native-locale-detector'
-import resources from './dictionaries'
-import { Settings } from 'luxon'
+import * as i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import locale from 'react-native-locale-detector';
+import resources from './dictionaries';
+import { Settings } from 'luxon';
 
 i18n
   .use({
@@ -19,6 +19,6 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-  })
+  });
 
-Settings.defaultLocale = locale
+Settings.defaultLocale = locale;

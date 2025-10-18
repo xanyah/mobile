@@ -1,7 +1,7 @@
-import { TextInputProps as RNTextInputProps, TextInput as RNTextInput, StyleProp, ViewStyle } from 'react-native'
-import { Container, Error, ErrorsContainer, Hint, Label, TextInput as StyledTextInput } from './styled-components'
-import { map } from 'lodash'
-import { forwardRef } from 'react'
+import { TextInputProps as RNTextInputProps, TextInput as RNTextInput, StyleProp, ViewStyle } from 'react-native';
+import { Container, Error, ErrorsContainer, Hint, Label, TextInput as StyledTextInput } from './styled-components';
+import { map } from 'lodash';
+import { forwardRef } from 'react';
 
 
 type TextInputProps = RNTextInputProps & {
@@ -23,7 +23,7 @@ const TextInput = forwardRef<RNTextInput, TextInputProps>(({ label, errors, cont
       </ErrorsContainer>
     )}
     {hint && <Hint>{hint}</Hint>}
-  </Container>
-})
+  </Container>;
+});
 
-export default TextInput
+export default TextInput;

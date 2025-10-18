@@ -1,4 +1,4 @@
-import { InputsContainer, MainContainer, Title } from "./styled-components"
+import { InputsContainer, MainContainer, Title } from './styled-components';
 
 interface FormSectionProps {
   title: string
@@ -13,7 +13,7 @@ const FormSection = ({ title, children }: FormSectionProps) => {
         {children}
       </InputsContainer>
     </MainContainer>
-  )
-}
+  );
+};
 
-export default FormSection
+export default FormSection;

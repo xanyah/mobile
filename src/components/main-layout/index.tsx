@@ -1,7 +1,7 @@
-import { useNavigation } from "@react-navigation/native"
-import { HeaderContainer, HeaderContentContainer, HeaderIconContainer, HeaderTitle, HeaderTitleContainer, MainContainer, MainContentContainer } from "./styled-components"
-import { AlignLeft, ArrowLeft, LucideIcon } from "lucide-react-native"
-import { SafeAreaView, TouchableOpacity } from "react-native"
+import { useNavigation } from '@react-navigation/native';
+import { HeaderContainer, HeaderContentContainer, HeaderIconContainer, HeaderTitle, HeaderTitleContainer, MainContainer, MainContentContainer } from './styled-components';
+import { ArrowLeft, LucideIcon } from 'lucide-react-native';
+import { SafeAreaView, TouchableOpacity } from 'react-native';
 
 type MainLayoutProps = {
   title: string
@@ -12,7 +12,7 @@ type MainLayoutProps = {
 }
 
 const MainLayout = ({ title, canGoBack, children, rightIcon: RightIcon, rightAction }: MainLayoutProps) => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     <MainContainer>
       <HeaderContainer>
@@ -40,7 +40,7 @@ const MainLayout = ({ title, canGoBack, children, rightIcon: RightIcon, rightAct
       </HeaderContainer>
       <MainContentContainer>{children}</MainContentContainer>
     </MainContainer>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

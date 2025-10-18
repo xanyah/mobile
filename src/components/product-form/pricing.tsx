@@ -1,69 +1,69 @@
-import { useCallback, useEffect, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { ceil, isNumber, round, toNumber, toString } from 'lodash'
-import { Controller, useFormContext } from 'react-hook-form'
-import { formSchemaType } from './config'
-import FormSection from '../form-section'
-import TextInput from '../text-input'
-import { useVatRate } from '../../hooks/vat-rates'
-import { Switch, Text } from 'react-native'
-import VatRateSelect from '../vat-rate-select'
+import { useCallback, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { ceil, isNumber, round, toNumber, toString } from 'lodash';
+import { Controller, useFormContext } from 'react-hook-form';
+import { formSchemaType } from './config';
+import FormSection from '../form-section';
+import TextInput from '../text-input';
+import { useVatRate } from '../../hooks/vat-rates';
+import { Switch, Text } from 'react-native';
+import VatRateSelect from '../vat-rate-select';
 
 const ProductFormPricing = () => {
-  const { t } = useTranslation()
-  const { control, setValue, watch } = useFormContext<formSchemaType>()
-  const vatRateId = watch('vatRateId')
-  const ratioValue = watch('ratio')
-  const buyingAmount = watch('buyingAmount')
-  const ratioEnabled = watch('ratioEnabled')
+  const { t } = useTranslation();
+  const { control, setValue, watch } = useFormContext<formSchemaType>();
+  const vatRateId = watch('vatRateId');
+  const ratioValue = watch('ratio');
+  const buyingAmount = watch('buyingAmount');
+  const ratioEnabled = watch('ratioEnabled');
 
-  const { data: vatRateData } = useVatRate(vatRateId)
+  const { data: vatRateData } = useVatRate(vatRateId);
 
   const processedVatRate = useMemo(
     () => (vatRateData?.data.ratePercentCents || 0) / 10000,
     [vatRateData?.data],
-  )
+  );
 
   const setPriceFromRatio = useCallback(() => {
     if (isNaN(buyingAmount) || !isNumber(ratioValue) || isNaN(ratioValue)) {
-      return
+      return;
     }
 
-    const total = buyingAmount * ratioValue
+    const total = buyingAmount * ratioValue;
 
-    setValue('amount', round(total, 2))
-    setValue('taxFreeAmount', round(ceil(total / (1 + processedVatRate), 2), 2))
-  }, [buyingAmount, processedVatRate, setValue, ratioValue])
+    setValue('amount', round(total, 2));
+    setValue('taxFreeAmount', round(ceil(total / (1 + processedVatRate), 2), 2));
+  }, [buyingAmount, processedVatRate, setValue, ratioValue]);
 
   const setPriceFromTaxFreePrice = useCallback(
     (value: number) => {
       if (isNaN(value)) {
-        return
+        return;
       }
 
-      setValue('taxFreeAmount', value)
-      setValue('amount', ceil(value * (1 + processedVatRate), 2))
+      setValue('taxFreeAmount', value);
+      setValue('amount', ceil(value * (1 + processedVatRate), 2));
     },
     [processedVatRate, setValue],
-  )
+  );
 
   const setTaxFreeFromPrice = useCallback(
     (value: number) => {
       if (isNaN(value)) {
-        return
+        return;
       }
 
-      setValue('amount', value)
-      setValue('taxFreeAmount', ceil(value / (1 + processedVatRate), 2))
+      setValue('amount', value);
+      setValue('taxFreeAmount', ceil(value / (1 + processedVatRate), 2));
     },
     [processedVatRate, setValue],
-  )
+  );
 
   useEffect(() => {
     if (ratioEnabled) {
-      setPriceFromRatio()
+      setPriceFromRatio();
     }
-  }, [setPriceFromRatio, ratioEnabled])
+  }, [setPriceFromRatio, ratioEnabled]);
 
   return (
     <FormSection title={t('product.pricing')}>
@@ -170,7 +170,7 @@ const ProductFormPricing = () => {
         )}
       />
     </FormSection>
-  )
-}
+  );
+};
 
-export default ProductFormPricing
+export default ProductFormPricing;

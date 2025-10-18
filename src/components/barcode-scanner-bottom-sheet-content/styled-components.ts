@@ -76,9 +76,16 @@ export const ProductSubtitle = styled.Text`
   color: #AAA;
 `;
 
-export const ProductContainer = styled.View`
+export const ProductsContainer = styled.View`
   align-items: center;
   flex-direction: row;
+  gap: 16px;
+  justify-content: space-between;
+`;
+
+export const ProductContainer = styled.View`
+  align-items: center;
+  flex-direction: column;
   gap: 16px;
   justify-content: space-between;
 `;
@@ -91,4 +98,18 @@ export const ProductInfosContainer = styled.View`
 
 export const ProductDetailsContainer = styled.View`
   flex-direction: column;
+`;
+
+export const ButtonCloseContainer = styled.TouchableOpacity`
+  align-items: center;
+  background: rgba(0,0,0,.3);
+  border-radius: 16px;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  padding: 4px;
+  position: absolute;
+  right: 20px;
+  top: 0px;
+  width: 32px;
 `;

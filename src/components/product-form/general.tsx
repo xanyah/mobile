@@ -1,14 +1,14 @@
-import { useTranslation } from 'react-i18next'
-import { Controller, useFormContext } from 'react-hook-form'
-import { formSchemaType } from './config'
-import FormSection from '../form-section'
-import TextInput from '../text-input'
-import ManufacturerSelect from '../manufacturer-select'
-import CategorySelect from '../category-select'
+import { useTranslation } from 'react-i18next';
+import { Controller, useFormContext } from 'react-hook-form';
+import { formSchemaType } from './config';
+import FormSection from '../form-section';
+import TextInput from '../text-input';
+import ManufacturerSelect from '../manufacturer-select';
+import CategorySelect from '../category-select';
 
 const ProductFormGeneral = () => {
-  const { t } = useTranslation()
-  const { control } = useFormContext<formSchemaType>()
+  const { t } = useTranslation();
+  const { control } = useFormContext<formSchemaType>();
 
   return (
     <FormSection title={t('product.generalInformations')}>
@@ -54,7 +54,7 @@ const ProductFormGeneral = () => {
       />
 
     </FormSection>
-  )
-}
+  );
+};
 
-export default ProductFormGeneral
+export default ProductFormGeneral;
