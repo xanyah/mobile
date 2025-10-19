@@ -12,7 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useAuth} from '../../contexts/AuthContext';
 
 const signinSchema = z.object({
-  username: z.string().email(),
+  username: z.email(),
   password: z.string(),
 });
 
