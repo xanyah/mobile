@@ -14,7 +14,7 @@
     "lucide-react-native": "^0.546.0",
     "luxon": "^3.7.2",
     "object-to-formdata": "^4.5.1",
-    "react": "^19.2.0",
+    "react": "19.1.1",
     "react-hook-form": "^7.65.0",
     "react-i18next": "^16.1.0",
     "react-native": "0.82.0",
@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
+    "@babel/plugin-transform-export-namespace-from": "^7.27.1",
     "@babel/preset-env": "^7.28.3",
     "@babel/runtime": "^7.28.4",
     "@react-native-community/cli": "^20.0.2",
@@ -55,13 +56,7 @@
     "react-test-renderer": "^19.2.0",
     "typescript": "^5.9.3"
   },
-  "engines": {
-    "node": ">=18"
-  },
   "name": "Xanyah",
-  "patchedDependencies": {
-    "styled-components@6.1.17": "patches/styled-components@6.1.17.patch"
-  },
   "private": true,
   "scripts": {
     "android": "react-native run-android",

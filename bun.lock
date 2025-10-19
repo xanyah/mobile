@@ -18,7 +18,7 @@
         "lucide-react-native": "^0.546.0",
         "luxon": "^3.7.2",
         "object-to-formdata": "^4.5.1",
-        "react": "^19.2.0",
+        "react": "19.1.1",
         "react-hook-form": "^7.65.0",
         "react-i18next": "^16.1.0",
         "react-native": "0.82.0",
@@ -38,6 +38,7 @@
       },
       "devDependencies": {
         "@babel/core": "^7.28.4",
+        "@babel/plugin-transform-export-namespace-from": "^7.27.1",
         "@babel/preset-env": "^7.28.3",
         "@babel/runtime": "^7.28.4",
         "@react-native-community/cli": "^20.0.2",
@@ -1462,7 +1463,7 @@
 
     "raw-body": ["raw-body@2.5.2", "", { "dependencies": { "bytes": "3.1.2", "http-errors": "2.0.0", "iconv-lite": "0.4.24", "unpipe": "1.0.0" } }, "sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA=="],
 
-    "react": ["react@19.2.0", "", {}, "sha512-tmbWg6W31tQLeB5cdIBOicJDJRR2KzXsV7uSK9iNfLWQ5bIZfxuPEHp7M8wiHyHnn0DD1i7w3Zmin0FtkrwoCQ=="],
+    "react": ["react@19.1.1", "", {}, "sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ=="],
 
     "react-devtools-core": ["react-devtools-core@6.1.5", "", { "dependencies": { "shell-quote": "^1.6.1", "ws": "^7" } }, "sha512-ePrwPfxAnB+7hgnEr8vpKxL9cmnp7F322t8oqcPshbIQQhDKgFDW4tjhF2wjVbdXF9O/nyuy3sQWd9JGpiLPvA=="],
 
