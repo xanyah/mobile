@@ -1,29 +1,29 @@
-import { useMemo } from "react";
-import { Container, Text } from "./styled-components";
-import { useTranslation } from "react-i18next";
+import { useMemo } from 'react';
+import { Container, Text } from './styled-components';
+import { useTranslation } from 'react-i18next';
 
 type ShippingStateProps = {
   state: Shipping['state']
 }
 
 const ShippingState = ({ state }: ShippingStateProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const backgroundColor = useMemo(() => {
     switch (state) {
       case 'cancelled':
-        return '#FF0000'
+        return '#64748b';
       case 'validated':
-        return '#FFC700'
+        return '#22c55e';
       case 'pending':
-        return '#FFFF00'
+        return '#f97316';
     }
-  }, [state])
+  }, [state]);
 
   return (
     <Container style={{ backgroundColor }}>
       <Text>{t(`shipping.states.${state}`)}</Text>
     </Container>
-  )
+  );
 };
 
 export default ShippingState;

@@ -1,12 +1,29 @@
-import { TouchableOpacityProps } from "react-native";
-import { Container, Text } from "./styled-components";
+import { TouchableOpacityProps } from 'react-native';
+import { Container, Text } from './styled-components';
+import { isArray, map } from 'lodash';
 
-type ButtonProps = TouchableOpacityProps
+type ButtonProps = TouchableOpacityProps & {
+  size?: 'md' | 'sm'
+}
 
-const Button = ({children, ...props}: ButtonProps) => (
-  <Container {...props}>
-    <Text>{children}</Text>
-  </Container>
-)
+const renderChild = (child) => {
+  if (typeof child === 'string') {
+    return <Text key={child}>{child}</Text>;
+  }
 
-export default Button
+  return child;
+};
+
+const Button = ({
+  children,
+  size = 'md',
+  ...props
+}: ButtonProps) => {
+  return (
+    <Container size={size} {...props}>
+      {isArray(children) ? map(children, renderChild) : renderChild(children)}
+    </Container>
+  );
+};
+
+export default Button;

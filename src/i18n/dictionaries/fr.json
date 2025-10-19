@@ -341,7 +341,7 @@
   },
   "shipping": {
     "cancel": "Annuler la livraison",
-    "customer": "Client",
+    "provider": "Fournisseur",
     "pageSubtitle": "Commande passée le {{ shippingDate }}",
     "pageTitle": "Commande {{ shippingNumber }}",
     "products": "Articles de la livraison",

@@ -167,7 +167,7 @@
       "quantity": "Quantity"
     },
     "states": {
-      "cancelled": "Canceled",
+      "cancelled": "Cancelled",
       "delivered": "Received",
       "ordered": "Ordered",
       "pending": "On hold",
@@ -341,7 +341,7 @@
   },
   "shipping": {
     "cancel": "Cancel delivery",
-    "customer": "Customer",
+    "provider": "Provider",
     "pageSubtitle": "Order placed on {{ shippingDate }}",
     "pageTitle": "Order {{ shippingNumber }}",
     "products": "Delivery items",
@@ -354,7 +354,7 @@
       "description": "This product is already in your selection. Do you want to increase its quantity?"
     },
     "states": {
-      "cancelled": "Canceled",
+      "cancelled": "Cancelled",
       "pending": "On hold",
       "validated": "Validated"
     },
