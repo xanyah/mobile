@@ -1,10 +1,12 @@
-import {Button} from '../../components';
-import {Container} from './styled-components';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useAuth} from '../../contexts/AuthContext';
-import {Text} from 'react-native';
+import { Button, MainLayout } from '../../components';
+import { Container } from './styled-components';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useAuth } from '../../contexts/AuthContext';
+import { Text } from 'react-native';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { LogOut } from 'lucide-react-native';
 
 type RootStackParamList = {
   SignIn: undefined;
@@ -14,19 +16,25 @@ type RootStackParamList = {
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const Profile = () => {
-  const {signOut, user} = useAuth();
+  const { t } = useTranslation()
+  const { signOut, user } = useAuth();
   const navigation = useNavigation<NavigationProp>();
 
   const onSignOut = useCallback(() => {
     signOut();
-    navigation.reset({key: '0', 'routes': [{name: 'SignIn'}]});
+    navigation.reset({ key: '0', 'routes': [{ name: 'SignIn' }] });
   }, [signOut, navigation]);
 
   return (
-    <Container>
-      <Text>{user?.firstname}</Text>
-      <Button onPress={onSignOut}>Se déconnecter</Button>
-    </Container>
+    <MainLayout title={t('profile.pageTitle')}>
+      <Container>
+        <Text>{user?.email}</Text>
+        <Button onPress={onSignOut}>
+          <LogOut color="#fff" />
+          {t('profile.signOut')}
+        </Button>
+      </Container>
+    </MainLayout>
   );
 };
 

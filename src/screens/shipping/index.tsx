@@ -9,7 +9,7 @@ import {
   Title,
 } from './styled-components';
 import { useShipping, useShippingProducts } from '../../hooks';
-import { StaticScreenProps, useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { ScanBarcode, Trash } from 'lucide-react-native';
 import { find, head, split } from 'lodash';
@@ -18,14 +18,12 @@ import { useMutation } from '@tanstack/react-query';
 import { createShippingProduct, deleteShippingProduct, updateShippingProduct, validateShipping } from '../../api/shippings';
 import QuantityInput from '../../components/quantity-input';
 
-type Props = StaticScreenProps<{
-  id: string;
-}>;
 
-const Shipping = ({ route }: Props) => {
+const Shipping = () => {
+  const {params} = useRoute<any>()
   const { t } = useTranslation();
   const navigation = useNavigation();
-  const { id } = route.params;
+  const { id } = params;
   const [productScannerOpened, setProductScannerOpened] = useState(false);
   const { data } = useShipping(id);
   const { data: productsData, refetch, isFetching } = useShippingProducts({
@@ -90,7 +88,7 @@ const Shipping = ({ route }: Props) => {
                 <ProductTitle>{item.product.name}</ProductTitle>
                 <Button style={{backgroundColor: 'transparent', paddingRight: 0, paddingLeft: 0}} onPress={() => deleteShippingProductMutate(item.id)}>
                   <Trash size={16} color="#ef4444" />
-                  <Text style={{color: '#ef4444'}}>Supprimer</Text>
+                  <Text style={{color: '#ef4444'}}>{t('global.delete')}</Text>
                 </Button>
               </LeftContainer>
               <RightContainer>
@@ -105,7 +103,7 @@ const Shipping = ({ route }: Props) => {
           onRefresh={() => refetch()}
           keyExtractor={item => item.id}
         />
-        <Button onPress={() =>validateShippingMutate()}>Valider la livraison</Button>
+        <Button onPress={() =>validateShippingMutate()}>{t('shipping.validate')}</Button>
       </MainContainer>
       <ProductScanner
         onClose={() => setProductScannerOpened(false)}

@@ -14,6 +14,9 @@
     "security": "Security",
     "signOut": "Sign out"
   },
+  "barcodeScanner": {
+    "startScanning": "Scan a barcode to add products"
+  },
   "categories": {
     "createButtonLabel": "Create a category",
     "pageTitle": "Categories",
@@ -112,26 +115,39 @@
     }
   },
   "dailyReport": {
+    "emptySales": "No sales were made on this day.",
     "pageTitle": "Daily report",
     "print": "Print",
+    "receiptNumber": "Receipt N° {{receiptNumber}}",
     "sales": "Sales",
-    "total": "Total incl. tax",
-    "emptySales": "No sales were made on this day.",
-    "receiptNumber": "Receipt N° {{receiptNumber}}"
+    "total": "Total incl. tax"
   },
   "global": {
     "cancel": "Cancel",
     "confirm": "Confirm",
     "create": "Create",
+    "delete": "Delete",
     "edit": "Edit",
     "loading": "Loading in progress ...",
     "save": "Save",
     "saved": "Saved",
     "saving": "Saving...",
-    "savingError": "Error while saving"
+    "savingError": "Error while saving",
+    "startScanning": "Start scanning products"
   },
   "inventories": {
+    "create": "Start an inventory",
+    "delete": {
+      "confirmDeletion": "Delete the inventory",
+      "description": "The inventory will be deleted forever",
+      "title": "Delete the inventory ?"
+    },
     "pageTitle": "Inventories"
+  },
+  "inventory": {
+    "pageTitle": "{{ inventoryDate }}'s inventory",
+    "products": "Products",
+    "validate": "Validate inventory"
   },
   "manufacturer": {
     "codeHint": "A code to identify the manufacturer (often the first 4 letters of the manufacturer)",
@@ -289,6 +305,10 @@
       "sku": "Barcode"
     }
   },
+  "profile": {
+    "pageTitle": "My account",
+    "signOut": "Sign out"
+  },
   "provider": {
     "generalInformations": "General information",
     "nameLabel": "Name",
@@ -341,18 +361,18 @@
   },
   "shipping": {
     "cancel": "Cancel delivery",
-    "provider": "Provider",
+    "existingProduct": {
+      "description": "This product is already in your selection. Do you want to increase its quantity?",
+      "title": "Product Already Exists"
+    },
     "pageSubtitle": "Order placed on {{ shippingDate }}",
     "pageTitle": "Order {{ shippingNumber }}",
     "products": "Delivery items",
     "productTable": {
-      "name": "Article name",
+      "name": "Product name",
       "quantity": "Quantity"
     },
-    "existingProduct": {
-      "title": "Product Already Exists",
-      "description": "This product is already in your selection. Do you want to increase its quantity?"
-    },
+    "provider": "Provider",
     "states": {
       "cancelled": "Cancelled",
       "pending": "On hold",

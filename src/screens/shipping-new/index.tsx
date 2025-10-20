@@ -20,7 +20,7 @@ const Shipping = () => {
   const { mutate: createShippingMutate } = useMutation({
     mutationFn: () => createShipping({ providerId, storeId: store?.id }),
     onSuccess: (data) => {
-      navigation.navigate('MainBottomTabNavigator', {screen: 'ShippingsNavigator', params: {screen: 'Shipping', params: {id: data.data.id}}});
+      navigation.navigate('MainBottomTabNavigator', { screen: 'ShippingsNavigator', params: { screen: 'Shipping', params: { id: data.data.id } } });
     },
   });
 
@@ -32,15 +32,15 @@ const Shipping = () => {
       <MainContainer>
         <Title>{t('shipping.provider')}</Title>
         <ProviderSelect
-                onChange={setProviderId}
-                value={providerId || ''}
-                label={t('shippingNew.providerLabel')}
-                placeholder={t('shippingNew.providerPlaceholder')}
-              />
+          onChange={setProviderId}
+          value={providerId || ''}
+          label={t('shippingNew.providerLabel')}
+          placeholder={t('shippingNew.providerPlaceholder')}
+        />
 
-              <Button onPress={() => createShippingMutate()}>
-                {t('global.save')}
-              </Button>
+        <Button onPress={() => createShippingMutate()}>
+          {t('global.save')}
+        </Button>
       </MainContainer>
     </MainLayout>
   );

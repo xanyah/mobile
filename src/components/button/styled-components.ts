@@ -7,12 +7,13 @@ export const Container = styled.TouchableOpacity<{ size: 'md' | 'sm' }>`
   justify-content: center;
   flex-direction: row;
   gap: 4px;
-  padding: ${props => props.size === 'md' ? '8px 16px' : '4px 8px'};
+  padding: ${props => props.size === 'md' ? '16px 32px' : '8px 16px'};
 `;
 
 export const Text = styled.Text`
   align-items: center;
   gap: 16px;
   color: #fff;
+  font-size: 16px;
   font-weight: 600;
 `;
