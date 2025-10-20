@@ -30,7 +30,7 @@ const ProductFormLogistics = () => {
       setValue('sku', data.nextSku.toString());
     }
     catch (err) {
-      // captureException(err)
+      console.error(err)
     }
   }, [store, setValue]);
 

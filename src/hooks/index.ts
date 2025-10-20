@@ -4,3 +4,4 @@ export * from './shippings';
 export * from './providers';
 export * from './stores';
 export * from './vat-rates';
+export * from './inventories';
