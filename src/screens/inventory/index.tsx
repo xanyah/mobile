@@ -1,5 +1,5 @@
 import { FlatList, Text } from 'react-native';
-import { Button, MainLayout, ProductScanner } from '../../components';
+import { Button, InventoryBarcodeScanner, MainLayout, QuantityInput } from '../../components';
 import {
   LeftContainer,
   MainContainer,
@@ -12,19 +12,16 @@ import { useInventory, useInventoryProducts } from '../../hooks/inventories';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { ScanBarcode, Trash } from 'lucide-react-native';
-import { find } from 'lodash';
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { createInventoryProduct, deleteInventoryProduct, updateInventoryProduct, validateInventory } from '../../api/inventories';
-import QuantityInput from '../../components/quantity-input';
+import { deleteInventoryProduct, updateInventoryProduct, validateInventory } from '../../api/inventories';
 import { DateTime } from 'luxon';
 
 const Inventory = () => {
-  const {params} = useRoute<any>()
+  const { params } = useRoute<any>()
   const { t } = useTranslation();
   const navigation = useNavigation();
   const { id } = params;
-  console.warn(id)
   const [productScannerOpened, setProductScannerOpened] = useState(false);
   const { data } = useInventory(id);
   const { data: productsData, refetch, isFetching } = useInventoryProducts({
@@ -32,11 +29,6 @@ const Inventory = () => {
     'q[s]': 'product.name asc',
   });
   const canCreateProduct = useMemo(() => !data?.data.lockedAt, [data]);
-
-  const { mutate: createInventoryProductMutate } = useMutation({
-    mutationFn: createInventoryProduct,
-    onSuccess: () => refetch(),
-  });
 
   const { mutate: updateInventoryProductMutate } = useMutation({
     mutationFn: ({ shippingProductId, quantity }: { shippingProductId: InventoryProduct['id'], quantity: number }) =>
@@ -56,16 +48,6 @@ const Inventory = () => {
     onSuccess: () => navigation.goBack(),
   });
 
-  const onProductSelect = useCallback((product: Product, quantity: number) => {
-    const existingInventoryProduct = find(productsData?.data, shippingProduct => shippingProduct.product.id === product.id);
-
-    if (existingInventoryProduct) {
-      updateInventoryProductMutate({ shippingProductId: existingInventoryProduct.id, quantity: existingInventoryProduct.quantity + quantity });
-    } else {
-      createInventoryProductMutate({ productId: product.id, inventoryId: id, quantity });
-    }
-  }, [id, productsData, createInventoryProductMutate, updateInventoryProductMutate]);
-
   return (
     <MainLayout
       canGoBack
@@ -83,21 +65,21 @@ const Inventory = () => {
           ListEmptyComponent={<Button onPress={() => setProductScannerOpened(true)}>
             <ScanBarcode size={20} color="#fff" />
             {t('global.startScanning')}
-            </Button>}
+          </Button>}
           renderItem={({ item }) => (
             <InventoryContainer>
               <LeftContainer>
                 <ProductTitle>{item.product.name}</ProductTitle>
-                <Button style={{backgroundColor: 'transparent', paddingRight: 0, paddingLeft: 0}} onPress={() => deleteInventoryProductMutate(item.id)}>
+                <Button style={{ backgroundColor: 'transparent', paddingRight: 0, paddingLeft: 0 }} onPress={() => deleteInventoryProductMutate(item.id)}>
                   <Trash size={16} color="#ef4444" />
-                  <Text style={{color: '#ef4444'}}>{t('global.delete')}</Text>
+                  <Text style={{ color: '#ef4444' }}>{t('global.delete')}</Text>
                 </Button>
               </LeftContainer>
               <RightContainer>
                 <QuantityInput
                   quantity={item.quantity}
                   onChange={(quantity) => updateInventoryProductMutate({ shippingProductId: item.id, quantity })}
-                  />
+                />
               </RightContainer>
             </InventoryContainer>
           )}
@@ -105,11 +87,11 @@ const Inventory = () => {
           onRefresh={() => refetch()}
           keyExtractor={item => item.id}
         />
-        <Button onPress={() =>validateInventoryMutate()}>{t('inventory.validate')}</Button>
+        <Button onPress={() => validateInventoryMutate()}>{t('inventory.validate')}</Button>
       </MainContainer>
-      <ProductScanner
+      <InventoryBarcodeScanner
+        inventoryId={id}
         onClose={() => setProductScannerOpened(false)}
-        onProductSelect={onProductSelect}
         isOpen={productScannerOpened}
       />
     </MainLayout>

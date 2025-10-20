@@ -15,6 +15,8 @@ import { head, isEmpty } from 'lodash';
 import { getProducts } from '../../api';
 import { X } from 'lucide-react-native';
 import BarcodeScannerBottomSheetContent from '../barcode-scanner-bottom-sheet-content';
+import { useAudioPlayer } from '../../hooks/audio';
+import { barcodeScannerError, barcodeScannerSuccess } from '../../assets/audios';
 
 type ProductScannerProps = {
   onProductSelect: (product: Product, quantity: number) => void
@@ -23,6 +25,8 @@ type ProductScannerProps = {
 }
 
 const BarcodeScanner = ({ isOpen, onClose, onProductSelect }: ProductScannerProps) => {
+  const {play: playError} = useAudioPlayer(barcodeScannerError)
+  const {play: playSuccess} = useAudioPlayer(barcodeScannerSuccess)
   const bottomSheetRef = useRef<BottomSheet>(null);
   const scanPending = useRef(false);
   const device = useCameraDevice('back');
@@ -36,17 +40,19 @@ const BarcodeScanner = ({ isOpen, onClose, onProductSelect }: ProductScannerProp
     });
 
     if (isEmpty(productsQuery.data)) {
+      playError()
       Alert.alert(
         'Produit introuvable',
         `Aucun produit trouvé avec le code barre ${scannedCode}`,
         [{ text: 'OK', onPress: () => { scanPending.current = false; } }]
       );
     } else {
+      playSuccess()
       setSelectedProducts(productsQuery.data);
       bottomSheetRef.current?.expand();
       scanPending.current = false;
     }
-  }, [setSelectedProducts]);
+  }, [setSelectedProducts, playError, playSuccess]);
 
   const onScan = useCallback<CodeScanner['onCodeScanned']>((codes) => {
     const scannedCode = head(codes)?.value;

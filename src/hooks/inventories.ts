@@ -13,6 +13,6 @@ export const useInventory = (id?: string) => useQuery({
 });
 
 export const useInventoryProducts = (params?: any) => useQuery({
-  queryKey: ['shippingProducts', params],
+  queryKey: ['inventoryProducts', params],
   queryFn: () => getInventoryProducts(params),
 });
