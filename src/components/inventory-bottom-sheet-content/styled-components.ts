@@ -96,6 +96,7 @@ export const ProductContainer = styled.View`
 export const ProductInfosContainer = styled.View`
   align-items: center;
   flex-direction: row;
+  flex: 1;
   gap: 8px;
 `;
 
