@@ -125,6 +125,8 @@
   "global": {
     "cancel": "Annuler",
     "confirm": "Confirmer",
+    "confirmDelete": "Confirmer la suppression",
+    "confirmDeleteMessage": "Êtes-vous sûr de vouloir supprimer {{ name }} ?",
     "create": "Créer",
     "delete": "Supprimer",
     "edit": "Éditer",

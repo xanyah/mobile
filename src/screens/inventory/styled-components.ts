@@ -17,6 +17,7 @@ export const InventoryContainer = styled.View`
 
 export const LeftContainer = styled.View`
   flex-direction: column;
+  flex: 1;
   align-items: flex-start;
 `;
 

@@ -1,4 +1,4 @@
-import { FlatList, Text } from 'react-native';
+import { FlatList, Text, ActivityIndicator, Alert } from 'react-native';
 import { Button, InventoryBarcodeScanner, MainLayout, QuantityInput } from '../../components';
 import {
   LeftContainer,
@@ -9,44 +9,72 @@ import {
   Title,
 } from './styled-components';
 import { useInventory, useInventoryProducts } from '../../hooks/inventories';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { ScanBarcode, Trash } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import { deleteInventoryProduct, updateInventoryProduct, validateInventory } from '../../api/inventories';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { deleteInventoryProduct, updateInventoryProduct } from '../../api/inventories';
 import { DateTime } from 'luxon';
 
 const Inventory = () => {
   const { params } = useRoute<any>()
   const { t } = useTranslation();
-  const navigation = useNavigation();
+  const queryClient = useQueryClient();
   const { id } = params;
   const [productScannerOpened, setProductScannerOpened] = useState(false);
   const { data } = useInventory(id);
-  const { data: productsData, refetch, isFetching } = useInventoryProducts({
+  const {
+    data: productsData,
+    refetch,
+    isFetching,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInventoryProducts({
     'q[inventory_id_eq]': id,
-    'q[s]': 'product.name asc',
+    'q[s]': 'updated_at asc',
   });
   const canCreateProduct = useMemo(() => !data?.data.lockedAt, [data]);
+
+  const products = useMemo(() => productsData?.pages.flatMap(page => page.data) ?? [], [productsData]);
 
   const { mutate: updateInventoryProductMutate } = useMutation({
     mutationFn: ({ shippingProductId, quantity }: { shippingProductId: InventoryProduct['id'], quantity: number }) =>
       updateInventoryProduct(shippingProductId, { quantity }),
-    onSuccess: () => refetch(),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['inventoryProducts'] }),
   });
 
   const { mutate: deleteInventoryProductMutate } = useMutation({
     mutationFn: (shippingProductId: InventoryProduct['id']) =>
       deleteInventoryProduct(shippingProductId),
-    onSuccess: () => refetch(),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['inventoryProducts'] }),
   });
 
-  const { mutate: validateInventoryMutate } = useMutation({
-    mutationFn: () =>
-      validateInventory(id),
-    onSuccess: () => navigation.goBack(),
-  });
+
+  const handleLoadMore = () => {
+    if (hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  };
+
+  const handleDeleteProduct = (productId: InventoryProduct['id'], productName: string) => {
+    Alert.alert(
+      t('global.confirmDelete'),
+      t('global.confirmDeleteMessage', { name: productName }),
+      [
+        {
+          text: t('global.cancel'),
+          style: 'cancel',
+        },
+        {
+          text: t('global.delete'),
+          style: 'destructive',
+          onPress: () => deleteInventoryProductMutate(productId),
+        },
+      ],
+    );
+  };
 
   return (
     <MainLayout
@@ -61,7 +89,7 @@ const Inventory = () => {
         <Title>{t('inventory.products')}</Title>
         <FlatList
           style={{ flex: 1 }}
-          data={productsData?.data}
+          data={products}
           ListEmptyComponent={<Button onPress={() => setProductScannerOpened(true)}>
             <ScanBarcode size={20} color="#fff" />
             {t('global.startScanning')}
@@ -70,7 +98,7 @@ const Inventory = () => {
             <InventoryContainer>
               <LeftContainer>
                 <ProductTitle>{item.product.name}</ProductTitle>
-                <Button style={{ backgroundColor: 'transparent', paddingRight: 0, paddingLeft: 0 }} onPress={() => deleteInventoryProductMutate(item.id)}>
+                <Button style={{ backgroundColor: 'transparent', paddingRight: 0, paddingLeft: 0 }} onPress={() => handleDeleteProduct(item.id, item.product.name)}>
                   <Trash size={16} color="#ef4444" />
                   <Text style={{ color: '#ef4444' }}>{t('global.delete')}</Text>
                 </Button>
@@ -85,9 +113,11 @@ const Inventory = () => {
           )}
           refreshing={isFetching}
           onRefresh={() => refetch()}
+          onEndReached={handleLoadMore}
+          onEndReachedThreshold={0.5}
+          ListFooterComponent={isFetchingNextPage ? <ActivityIndicator size="small" style={{ marginVertical: 20 }} /> : null}
           keyExtractor={item => item.id}
         />
-        <Button onPress={() => validateInventoryMutate()}>{t('inventory.validate')}</Button>
       </MainContainer>
       <InventoryBarcodeScanner
         inventoryId={id}

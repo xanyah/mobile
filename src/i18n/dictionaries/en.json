@@ -125,6 +125,8 @@
   "global": {
     "cancel": "Cancel",
     "confirm": "Confirm",
+    "confirmDelete": "Confirm deletion",
+    "confirmDeleteMessage": "Are you sure you want to delete {{ name }}?",
     "create": "Create",
     "delete": "Delete",
     "edit": "Edit",
@@ -146,8 +148,7 @@
   },
   "inventory": {
     "pageTitle": "{{ inventoryDate }}'s inventory",
-    "products": "Products",
-    "validate": "Validate inventory"
+    "products": "Products"
   },
   "manufacturer": {
     "codeHint": "A code to identify the manufacturer (often the first 4 letters of the manufacturer)",
