@@ -67,7 +67,7 @@
     "start": "react-native start",
     "test": "jest"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "patchedDependencies": {
     "@gorhom/bottom-sheet@5.2.6": "patches/@gorhom%2Fbottom-sheet@5.2.6.patch"
   },
