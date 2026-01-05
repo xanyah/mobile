@@ -12,6 +12,6 @@ export const Button = styled.TouchableOpacity`
   padding: 4px 8px;
 `;
 
-export const Text = styled.Text`
+export const TextInput = styled.TextInput`
   font-size: 20px;
 `;

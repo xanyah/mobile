@@ -33,7 +33,7 @@ const Inventory = () => {
     isFetchingNextPage,
   } = useInventoryProducts({
     'q[inventory_id_eq]': id,
-    'q[s]': 'updated_at asc',
+    'q[s]': 'updated_at desc',
   });
   const canCreateProduct = useMemo(() => !data?.data.lockedAt, [data]);
 
