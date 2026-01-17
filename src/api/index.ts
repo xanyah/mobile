@@ -1,5 +1,6 @@
 export * from './auth';
 export * from './categories';
+export * from './custom-attributes';
 export * from './manufacturers';
 export * from './products';
 export * from './providers';

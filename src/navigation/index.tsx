@@ -6,7 +6,7 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { icons } from 'lucide-react-native';
 import Profile from '../screens/profile';
-import { InitialLoading, Inventories, Inventory, Shipping, ShippingNew, Shippings } from '../screens';
+import { InitialLoading, Inventories, Inventory, Products, Shipping, ShippingNew, Shippings } from '../screens';
 import SignIn from '../screens/signin';
 import { useAuth } from '../contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
@@ -72,6 +72,14 @@ const MainBottomTabNavigator = () => {
         options={{
           tabBarLabel: getTabBarLabel(t('inventories.pageTitle')),
           tabBarIcon: getTabBarIcon('ScanBarcode'),
+        }}
+      />
+      <BottomTabNavigator.Screen
+        name="Products"
+        component={Products}
+        options={{
+          tabBarLabel: getTabBarLabel(t('products.pageTitle')),
+          tabBarIcon: getTabBarIcon('Package'),
         }}
       />
       <BottomTabNavigator.Screen
