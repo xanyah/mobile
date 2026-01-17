@@ -5,6 +5,7 @@ import { ArrowRight, X } from 'lucide-react-native';
 import { Text } from 'react-native';
 import { useEffect, useState } from 'react';
 import QuantityInput from '../quantity-input';
+import { useTranslation } from 'react-i18next';
 
 type BarcodeScannerBottomSheetContentProps = {
   products: Product[]
@@ -13,6 +14,7 @@ type BarcodeScannerBottomSheetContentProps = {
 }
 
 const BarcodeScannerBottomSheetContent = ({ products, onClose, onProductSelect }: BarcodeScannerBottomSheetContentProps) => {
+  const {t} = useTranslation()
   const [selectedProduct, setSelectedProduct] = useState<Product>();
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
@@ -22,7 +24,7 @@ const BarcodeScannerBottomSheetContent = ({ products, onClose, onProductSelect }
   }, [products, setSelectedProduct, setSelectedQuantity]);
 
   if (isEmpty(products)) {
-    return <Text>Scanner un code pour démarrer</Text>;
+    return <Text>{t('barcodeScanner.startScanning')}</Text>;
   }
 
   if (selectedProduct) {
@@ -45,7 +47,7 @@ const BarcodeScannerBottomSheetContent = ({ products, onClose, onProductSelect }
           </ProductInfosContainer>
           <QuantityInput quantity={selectedQuantity} onChange={setSelectedQuantity} />
           <Button size="md" onPress={() => onProductSelect(selectedProduct, selectedQuantity)}>
-            Confirmer
+            {t('global.confirm')}
           </Button>
         </ProductContainer>
       </>
@@ -54,12 +56,11 @@ const BarcodeScannerBottomSheetContent = ({ products, onClose, onProductSelect }
 
   return (
     <>
-      <Button onPress={onClose}>x</Button>
+      <Button onPress={onClose}><X /></Button>
       {map(products, product => (
         <ProductsContainer key={product.id}>
           <ProductInfosContainer>
             {!isEmpty(product.images) && <ProductImage source={{ uri: product.images[0].thumbnail }} />}
-            <ProductImage source={{ uri: 'https://placehold.co/400' }} />
             <ProductDetailsContainer>
               <ProductTitle>{product.name}</ProductTitle>
               <ProductSubtitle>{product.manufacturerSku}</ProductSubtitle>
@@ -71,7 +72,7 @@ const BarcodeScannerBottomSheetContent = ({ products, onClose, onProductSelect }
         </ProductsContainer>
       ))}
       <Button size="md" onPress={onClose}>
-        Annuler
+        {t('global.cancel')}
       </Button>
     </>
   );

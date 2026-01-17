@@ -1,5 +1,6 @@
 import { Minus, Plus } from 'lucide-react-native';
-import { Button, Container, Text } from './styled-components';
+import { Button, Container, TextInput } from './styled-components';
+import { useEffect, useState } from 'react';
 
 type QuantityInputProps = {
   quantity: number
@@ -7,6 +8,12 @@ type QuantityInputProps = {
 }
 
 const QuantityInput = ({ quantity, onChange }: QuantityInputProps) => {
+  const [tempQuantity, setTempQuantity] = useState(quantity);
+
+  useEffect(() => {
+    setTempQuantity(quantity);
+  }, [quantity]);
+
   return (
     <Container>
       <Button
@@ -14,7 +21,12 @@ const QuantityInput = ({ quantity, onChange }: QuantityInputProps) => {
       >
         <Minus size={24} color="grey" />
       </Button>
-      <Text>{quantity}</Text>
+      <TextInput
+        value={String(tempQuantity)}
+        onChangeText={text => setTempQuantity(Number(text))}
+        onBlur={() => onChange?.(tempQuantity)}
+        keyboardType="numeric"
+      />
 
       <Button
         onPress={() => onChange?.(quantity + 1)}

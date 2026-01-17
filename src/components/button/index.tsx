@@ -1,12 +1,13 @@
 import { TouchableOpacityProps } from 'react-native';
 import { Container, Text } from './styled-components';
 import { isArray, map } from 'lodash';
+import { ReactNode } from 'react';
 
 type ButtonProps = TouchableOpacityProps & {
   size?: 'md' | 'sm'
 }
 
-const renderChild = (child) => {
+const renderChild = (child: ReactNode|string) => {
   if (typeof child === 'string') {
     return <Text key={child}>{child}</Text>;
   }

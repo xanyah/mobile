@@ -8,7 +8,7 @@ export const useShippings = (params?: any) => useQuery({
 
 export const useShipping = (id?: string) => useQuery({
   queryKey: ['shippings', { id }],
-  queryFn: () => getShipping(id),
+  queryFn: () => getShipping(id || ''),
   enabled: !!id,
 });
 
